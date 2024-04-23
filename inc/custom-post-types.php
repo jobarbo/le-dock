@@ -8,35 +8,35 @@ function create_post_type() {
 
     // RETAILERS
     register_post_type(
-        'retraite',
+        'projet',
         array(
             'labels' => array(
-                'name' => 'Retraite',
-                'singular_name' => 'Retraite',
-                'add_new' => 'Ajouter',
-                'add_new_item' => 'Ajouter',
-                'edit' => 'Modifier',
-                'edit_item' => 'Modifier',
-                'new_item' => 'Ajouter',
-                'view' => 'Voir',
-                'view_item' => 'Voir',
-                'search_items' => 'Chercher',
+                'name' => 'Projets',
+                'singular_name' => 'Projet',
+                'add_new' => 'Ajouter un projet',
+                'add_new_item' => 'Ajouter un projet',
+                'edit' => 'Modifier le projet',
+                'edit_item' => 'Modifier le projet',
+                'new_item' => 'Ajouter un nouveau projet',
+                'view' => 'Voir le projet',
+                'view_item' => 'Voir le projet',
+                'search_items' => 'Chercher un projet',
                 'not_found' => 'Aucun résultat',
                 'not_found_in_trash' => 'Aucun résultat dans la corbeille'
             ),
             'public' => true,
             'has_archive' => false,
             'menu_position' => 21,
-            'menu_icon' => 'dashicons-admin-multisite',
+            'menu_icon' => 'dashicons-format-video',
             'supports' => array(
                 'title',
                 'editor'
             ),
             'rewrite' => array(
-                'slug' => 'retraite'
+                'slug' => 'projet'
             ),
             'can_export' => true,
-            'taxonomies' => array('retraite', 'category'),
+            'taxonomies' => array('projet', 'category'),
         )
     );
 }
