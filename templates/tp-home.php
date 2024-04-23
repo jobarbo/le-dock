@@ -9,6 +9,20 @@ get_header(); ?>
 <section class="hero">
     <div class="hero__video">
         <?= $hero['video']; ?>
+        <div class="hero__volume">
+            <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 27" width="31" height="27">
+                <title>volume</title>
+                <style>
+                    .s0 {
+                        fill: #f0f2f0
+                    }
+                </style>
+                <path id="&lt;Compound Path&gt;" fill-rule="evenodd" class="s0" d="m13.2 26.2l-6.7-6.1h-6v-13.2h6l6.7-6.8zm-10.8-7.9h4.8l4.1 3.7v-17.2l-4 4.1h-4.9z" />
+                <path id="&lt;Path&gt;" class="s0" d="m21.8 13.2c0-2.3-1.2-4.3-3-5.5l-1.4 1.4c1.5 0.8 2.5 2.4 2.5 4.1 0 1.8-1 3.4-2.5 4.2l1.4 1.4c1.8-1.2 3-3.3 3-5.6z" />
+                <path id="&lt;Path&gt;" class="s0" d="m26.6 13.2c0-3.4-1.6-6.5-4.1-8.5l-1.4 1.3c2.2 1.7 3.5 4.3 3.5 7.2 0 3-1.3 5.6-3.5 7.3l1.4 1.3c2.5-2 4.1-5.1 4.1-8.6z" />
+                <path id="&lt;Path&gt;" class="s0" d="m29.1 13.2c0 4-1.8 7.6-4.6 10l1.3 1.3c3.2-2.7 5.2-6.8 5.2-11.3 0-4.5-2-8.5-5.2-11.2l-1.3 1.3c2.8 2.4 4.6 6 4.6 9.9z" />
+            </svg>
+        </div>
     </div>
     <div class="hero__container">
         <div class="hero__title-container">
@@ -25,17 +39,17 @@ get_header(); ?>
         </div>
 
     </div>
-    <div class="hero__waves">
-        <svg id="Layer_8" data-name="Layer 8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2761 307.79">
+    <div class="hero__wave">
+        <svg id="hero__wave-svg" data-name="hero__wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2761 307.79">
             <defs>
                 <style>
-                    .cls-1 {
+                    .wave {
                         fill: #f0f2f0;
                         stroke-width: 0px;
                     }
                 </style>
             </defs>
-            <path class="cls-1" d="M2531.4,24.99h0c-150.12,33.15-307.34,33.15-457.46,0l-.59-.13c-149.75-33.06-306.55-33.15-456.35-.25l-3.43.75c-149.79,32.9-306.6,32.82-456.35-.25l-.59-.13c-150.12-33.14-307.34-33.14-457.46,0l-.59.13c-149.75,33.06-306.55,33.15-456.35.25l-3.43-.75C160.45,7.4,80.18-.76,0,.08v307.71h2761V.14c-77.13-.06-154.26,8.22-229.6,24.85Z" />
+            <path class="wave" d="M2531.4,24.99h0c-150.12,33.15-307.34,33.15-457.46,0l-.59-.13c-149.75-33.06-306.55-33.15-456.35-.25l-3.43.75c-149.79,32.9-306.6,32.82-456.35-.25l-.59-.13c-150.12-33.14-307.34-33.14-457.46,0l-.59.13c-149.75,33.06-306.55,33.15-456.35.25l-3.43-.75C160.45,7.4,80.18-.76,0,.08v307.71h2761V.14c-77.13-.06-154.26,8.22-229.6,24.85Z" />
         </svg>
     </div>
 </section>
@@ -106,6 +120,20 @@ get_header(); ?>
                 </div>
             <?php endforeach; ?>
         </div>
+    </div>
+    <div class="talents__wave-container">
+        <svg id="footer__wave-svg" data-name="footer__wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2761 307.79">
+            <defs>
+                <style>
+                    .waveblue {
+                        fill: #0D1B2F;
+                        stroke-width: 0px;
+                    }
+                </style>
+            </defs>
+            <path class="waveblue" d="M2531.4,24.99h0c-150.12,33.15-307.34,33.15-457.46,0l-.59-.13c-149.75-33.06-306.55-33.15-456.35-.25l-3.43.75c-149.79,32.9-306.6,32.82-456.35-.25l-.59-.13c-150.12-33.14-307.34-33.14-457.46,0l-.59.13c-149.75,33.06-306.55,33.15-456.35.25l-3.43-.75C160.45,7.4,80.18-.76,0,.08v307.71h2761V.14c-77.13-.06-154.26,8.22-229.6,24.85Z" />
+        </svg>
+        </svg>
     </div>
 </section>
 
