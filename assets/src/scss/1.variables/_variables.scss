@@ -4,13 +4,15 @@
 
 // Colors
 // ==========================================================================
-
-$black: #1f1f1f;
-$gray: #707070;
-$white: #f1ebe5;
-$sand: #e6e0d9;
-$khaki: #d8d8c8;
-
+$black: #000;
+$white: #f0f2f0;
+$main-white: #f0f2f0;
+$secondary-white: #d1d3db;
+$blue: #0d1c30;
+$main-blue: #0d1c30;
+$secondary-blue: #0a1524;
+$tertiary-blue: #3d4959;
+$yellow: #e29927;
 //  Typography
 // ==========================================================================
 
@@ -58,7 +60,8 @@ $function-size-default: 16;
 $font-size-default: 16px;
 
 $line-height-default: 1.25;
-$text-color-default: $black;
+$text-color-default: $white;
+$text-color-secondary: $secondary-blue;
 
 // header height for mobile
 $mobile-header-height: 62px;
@@ -73,6 +76,10 @@ $trans-time: 0.2s;
 
 //  Settings
 // ==========================================================================
+
+$mobile-padding: 20px;
+$tablet-padding: 60px;
+$desktop-padding: 110px;
 
 // Under this threshold, the site enter the "mobile" resolutions
 // In px, no unit

@@ -24,10 +24,10 @@
 					</a>
 				</div>
 				<nav class="header__nav">
-					<ul class="header__list">
+					<ul class="header__nav-list">
 						<?php foreach ($navigation['nav_list'] as $nav) : ?>
-							<li class="header__item">
-								<a href="<?= $nav['nav_item']['url'] ?>" class="header__link"><?= $nav['nav_item']['title'] ?></a>
+							<li class="header__nav-item">
+								<a href="<?= $nav['nav_item']['url'] ?>" class="header__nav-link"><?= $nav['nav_item']['title'] ?></a>
 							</li>
 						<?php endforeach; ?>
 					</ul>

@@ -2,19 +2,29 @@
 // MIXINS - Grid and Containers
 // ==========================================================================
 
-@mixin container {
-	padding: 1em 15px;
-	margin-left: auto;
-	margin-right: auto;
+@mixin container($ptb: 1em, $plr: $mobile-padding, $mxw: 1550px) {
+  padding: $ptb $plr;
+  margin-left: auto;
+  margin-right: auto;
 
-	@include min-width($mobile-threshold) {
-		padding: 1em 30px;
-	}
+  @include min-width($mobile-threshold) {
+    // if $plr is not set, use the default tablet padding
+    @if $plr == $mobile-padding {
+      $plr: $tablet-padding;
+    }
+    padding: $ptb $plr;
+  }
 
-	@include min-width($tablet-threshold) {
-		margin-left: auto;
-		margin-right: auto;
-		padding: 1em 50px;
-		max-width: none;
-	}
+  @include min-width($tablet-threshold) {
+    // if $plr is not set, use the default desktop padding
+    @if $plr == $mobile-padding {
+      $plr: $desktop-padding;
+    } @else if $plr == $tablet-padding {
+      $plr: $desktop-padding;
+    }
+    margin-left: auto;
+    margin-right: auto;
+    padding: $ptb $plr;
+    max-width: $mxw;
+  }
 }
