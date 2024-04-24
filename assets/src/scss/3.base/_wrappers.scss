@@ -3,12 +3,16 @@
 // ==========================================================================
 
 .container {
-	@include container;
+  @include container;
 }
 .page-wrapper {
-	position: relative;
-	min-height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+  position: relative;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+main {
+  background-color: $white;
 }

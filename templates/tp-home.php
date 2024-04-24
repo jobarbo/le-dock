@@ -8,7 +8,7 @@ get_header(); ?>
 <?php $hero = get_field('hero'); ?>
 <section class="hero">
     <div class="hero__video">
-        <?= $hero['video']; ?>
+        <iframe title="Placeholder video" width="500" height="500" src="<?= $hero['video'] ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
         <div class="hero__volume">
             <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 27" width="31" height="27">
                 <title>volume</title>
@@ -24,8 +24,8 @@ get_header(); ?>
             </svg>
         </div>
     </div>
-    <div class="hero__container">
-        <div class="hero__title-container">
+    <div data-hero-container class="hero__container">
+        <div data-hero-text class="hero__title-container">
             <h1 class="hero__title"><?= $hero['title'] ?></h1>
             <ul class="hero__word-slider">
                 <?php foreach ($hero['word_list'] as $word) : ?>
@@ -34,8 +34,8 @@ get_header(); ?>
             </ul>
         </div>
         <div class="hero__button-container">
-            <button class="hero__button hero__button--play"><?= $hero['play_label'] ?></button>
-            <button class="hero__button hero__button--back"><?= $hero['back_label'] ?></button>
+            <button data-hero-play class="hero__button hero__button--play"><?= $hero['play_label'] ?></button>
+            <button data-hero-close class="hero__button hero__button--back hero__button--hidden"><?= $hero['back_label'] ?></button>
         </div>
 
     </div>
