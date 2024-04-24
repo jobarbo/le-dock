@@ -1,4 +1,4 @@
-import General from "./_general";
+import Nav from "./_nav";
 import Utils from "./helpers/_utils";
 
 const App = {
@@ -9,7 +9,7 @@ const App = {
     // General scripts
     function initGeneral() {
       const utils = new Utils();
-      return new General();
+      const nav = new Nav();
     }
     initGeneral();
   },

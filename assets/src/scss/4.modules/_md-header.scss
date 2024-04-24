@@ -6,29 +6,128 @@ html {
 }
 .header {
   &__container {
-    @include container(2em, $desktop-padding);
+    @include container(1em);
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding-top: 2em;
+    position: relative;
+    height: $mobile-header-height;
   }
   &__nav {
     width: 70%;
-  }
-  &__nav-list {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
+  }
+  &__logo {
+    height: 50px;
+  }
+
+  &__nav-list {
+    @include container;
+    display: flex;
     width: 100%;
+    &--mobile {
+      flex-direction: column;
+      position: absolute;
+      background-color: black;
+      left: 0;
+      top: 100%;
+      gap: 0.5em;
+      height: calc(100dvh - #{$mobile-header-height});
+      transform: translateX(-100%);
+    }
+
+    &--open {
+      transform: translateX(0);
+    }
+    &--desktop {
+      display: none;
+    }
   }
   &__nav-link {
     color: $text-color-default;
-    font-size: 1.2rem;
+    font-size: 1.7rem;
     opacity: 1;
     transition: opacity 0.3s;
     &:hover {
       opacity: 0.7;
+    }
+  }
+
+  &__hamburger {
+    height: 30px;
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3em;
+    cursor: pointer;
+    &--open {
+      .header__hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .header__hamburger-line:nth-child(2) {
+        opacity: 0;
+      }
+      .header__hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+    }
+  }
+
+  &__hamburger-line {
+    width: 100%;
+    height: 2px;
+    background-color: $text-color-default;
+  }
+}
+
+@include desktop-only {
+  .header {
+    height: $desktop-header-height;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.141);
+    width: 100%;
+    &__container {
+      @include container(2em, $desktop-padding);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+      padding-top: 2em;
+    }
+    &__logo {
+      height: 100px;
+    }
+
+    &__nav {
+      width: 70%;
+    }
+    &__nav-list {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      &--mobile {
+        display: none;
+      }
+    }
+    &__nav-link {
+      color: $text-color-default;
+      font-size: 1.43rem;
+      opacity: 1;
+      transition: opacity 0.3s;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    &__hamburger {
+      display: none;
     }
   }
 }

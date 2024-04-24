@@ -87,8 +87,9 @@ a:not([class]) {
 /* Make images easier to work with */
 img {
   display: block;
-  // max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Natural flow and rhythm in articles by default */
