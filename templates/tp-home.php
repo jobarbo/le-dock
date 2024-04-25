@@ -8,35 +8,49 @@ get_header(); ?>
 <?php $hero = get_field('hero'); ?>
 <section class="hero">
     <div class="hero__video">
+
+        <video autoplay muted loop src="<?= $hero['video']['url'] ?>"></video>
+
+
         <iframe title="Placeholder video" width="500" height="500" src="<?= $hero['video'] ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
-        <div class="hero__volume">
-            <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 27" width="31" height="27">
-                <title>volume</title>
-                <style>
-                    .s0 {
-                        fill: #f0f2f0
-                    }
-                </style>
-                <path id="&lt;Compound Path&gt;" fill-rule="evenodd" class="s0" d="m13.2 26.2l-6.7-6.1h-6v-13.2h6l6.7-6.8zm-10.8-7.9h4.8l4.1 3.7v-17.2l-4 4.1h-4.9z" />
-                <path id="&lt;Path&gt;" class="s0" d="m21.8 13.2c0-2.3-1.2-4.3-3-5.5l-1.4 1.4c1.5 0.8 2.5 2.4 2.5 4.1 0 1.8-1 3.4-2.5 4.2l1.4 1.4c1.8-1.2 3-3.3 3-5.6z" />
-                <path id="&lt;Path&gt;" class="s0" d="m26.6 13.2c0-3.4-1.6-6.5-4.1-8.5l-1.4 1.3c2.2 1.7 3.5 4.3 3.5 7.2 0 3-1.3 5.6-3.5 7.3l1.4 1.3c2.5-2 4.1-5.1 4.1-8.6z" />
-                <path id="&lt;Path&gt;" class="s0" d="m29.1 13.2c0 4-1.8 7.6-4.6 10l1.3 1.3c3.2-2.7 5.2-6.8 5.2-11.3 0-4.5-2-8.5-5.2-11.2l-1.3 1.3c2.8 2.4 4.6 6 4.6 9.9z" />
-            </svg>
-        </div>
+
     </div>
     <div data-hero-container class="hero__container">
         <div data-hero-text class="hero__title-container">
             <h1 class="hero__title"><?= $hero['title'] ?></h1>
-            <ul class="hero__word-slider">
-                <?php foreach ($hero['word_list'] as $word) : ?>
-                    <li class="hero__word"><?= $word['word'] ?></li>
-                <?php endforeach; ?>
-            </ul>
+            <div class="splide">
+                <div class="splide__track">
+                    <ul class="hero__word-slider splide__list">
+                        <?php foreach ($hero['word_list'] as $word) : ?>
+                            <li class="hero__word splide__slide"><?= $word['word'] ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
+
         </div>
-        <div class="hero__button-container">
-            <button data-hero-play class="hero__button hero__button--play"><?= $hero['play_label'] ?></button>
-            <button data-hero-close class="hero__button hero__button--back hero__button--hidden"><?= $hero['back_label'] ?></button>
+        <div class="hero__controls">
+            <div class="hero__button-container">
+                <button data-hero-play class="hero__button hero__button--play"><?= $hero['play_label'] ?></button>
+                <button data-hero-close class="hero__button hero__button--back hero__button--hidden"><?= $hero['back_label'] ?></button>
+
+            </div>
+            <div data-hero-volume class="hero__volume hero__volume--hidden">
+                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 27" width="31" height="27">
+                    <title>volume</title>
+                    <style>
+                        .s0 {
+                            fill: #f0f2f0
+                        }
+                    </style>
+                    <path id="&lt;Compound Path&gt;" fill-rule="evenodd" class="s0" d="m13.2 26.2l-6.7-6.1h-6v-13.2h6l6.7-6.8zm-10.8-7.9h4.8l4.1 3.7v-17.2l-4 4.1h-4.9z" />
+                    <path id="&lt;Path&gt;" class="s0" d="m21.8 13.2c0-2.3-1.2-4.3-3-5.5l-1.4 1.4c1.5 0.8 2.5 2.4 2.5 4.1 0 1.8-1 3.4-2.5 4.2l1.4 1.4c1.8-1.2 3-3.3 3-5.6z" />
+                    <path id="&lt;Path&gt;" class="s0" d="m26.6 13.2c0-3.4-1.6-6.5-4.1-8.5l-1.4 1.3c2.2 1.7 3.5 4.3 3.5 7.2 0 3-1.3 5.6-3.5 7.3l1.4 1.3c2.5-2 4.1-5.1 4.1-8.6z" />
+                    <path id="&lt;Path&gt;" class="s0" d="m29.1 13.2c0 4-1.8 7.6-4.6 10l1.3 1.3c3.2-2.7 5.2-6.8 5.2-11.3 0-4.5-2-8.5-5.2-11.2l-1.3 1.3c2.8 2.4 4.6 6 4.6 9.9z" />
+                </svg>
+            </div>
         </div>
+
 
     </div>
     <div class="hero__wave">

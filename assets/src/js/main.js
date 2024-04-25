@@ -1,5 +1,6 @@
 import Nav from "./_nav";
 import Hero from "./_hero";
+import WordSlider from "./_wordSlider";
 import Utils from "./helpers/_utils";
 
 const App = {
@@ -12,6 +13,7 @@ const App = {
       const utils = new Utils();
       const nav = new Nav();
       const hero = new Hero();
+      const wordSlider = new WordSlider();
     }
     initGeneral();
   },
