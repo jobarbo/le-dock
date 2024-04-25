@@ -1,0 +1,265 @@
+.hero {
+  position: relative;
+  margin-top: -$mobile-header-height;
+
+  &__video {
+    position: relative;
+    display: block;
+    height: fit-content;
+    height: 200%;
+    width: 200%;
+    transform: translateX(-50%);
+    z-index: 0;
+    pointer-events: none;
+
+    video {
+      position: relative;
+      object-fit: cover;
+    }
+  }
+  &__container {
+    @include container($mobile-header-height);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 0 !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      background: transparent
+        linear-gradient(
+          0deg,
+          #ffffff00 22%,
+          #bfc2c642 40%,
+          #3a434fcd 70%,
+          #0a1524 96%
+        )
+        0% 0% no-repeat padding-box;
+      transition: opacity 0.25s ease-in-out;
+      z-index: -1;
+    }
+    &--hidden {
+      &::after {
+        opacity: 0;
+      }
+    }
+  }
+  &__wave {
+    position: absolute;
+    bottom: -1px;
+    z-index: 1;
+    left: 0;
+    width: 100%;
+  }
+  &__title-container {
+    align-self: flex-start;
+    display: flex;
+    flex-direction: row;
+    gap: 0.4em;
+    opacity: 1;
+    transition: opacity 0.25s ease-in-out;
+    z-index: 2;
+    &--hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+  &__title {
+    color: $white;
+    line-height: 1em;
+    font-size: rem(28);
+  }
+  &__word {
+    font-size: rem(28);
+    font-family: $font-family-title;
+    text-transform: uppercase;
+    position: relative;
+    padding-left: 20px;
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+    overflow: hidden;
+    width: fit-content;
+    /* add image to after pseudo element */
+    &.is-prev,
+    &.is-next {
+      opacity: 0.5;
+    }
+    &.is-active {
+      opacity: 1;
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: -0px;
+        left: -0px;
+        width: 100%;
+        height: 100%;
+        background-image: url("@/img/highlighter.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 50% 0%;
+        opacity: 1;
+        z-index: -1;
+        transform: translateX(0em);
+      }
+      &.splide__slide--clone {
+        opacity: 0;
+      }
+    }
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -0px;
+      left: -0px;
+      width: 100%;
+      height: 100%;
+      background-image: url("@/img/highlighter.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 50% 55%;
+      transform-origin: left;
+      transform: translateX(-2em);
+      opacity: 0;
+      transition: 0.25s ease-in-out;
+      z-index: -1;
+    }
+  }
+  &__controls {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    justify-content: center;
+  }
+  &__volume {
+    position: absolute;
+    right: 0;
+    opacity: 1;
+    transition: 0.25s ease-in-out;
+    cursor: pointer;
+    &--hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    &--muted {
+      opacity: 0.2;
+    }
+  }
+  &__button-container {
+    position: relative;
+    width: fit-content;
+    display: flex;
+    border: 1px solid $white;
+    border-radius: 50px;
+    justify-content: center;
+  }
+  &__button {
+    color: $white;
+    padding: 0.75em 2em;
+    cursor: pointer;
+    &--back,
+    &--play {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    &--play {
+      position: relative;
+    }
+    &--hidden {
+      visibility: hidden;
+      pointer-events: none;
+    }
+  }
+  .splide__track {
+    overflow: visible !important;
+  }
+}
+
+@include desktop-only {
+  .hero {
+    margin-top: 0;
+    &__video {
+      padding-bottom: 56.25%; /* 16:9 */
+    }
+    &__container {
+      @include container($desktop-header-height);
+      align-items: flex-start;
+    }
+    &__title {
+      color: $white;
+      line-height: 1em;
+      font-size: rem(64);
+    }
+    &__title-container {
+      align-self: flex-start;
+      display: flex;
+      flex-direction: row;
+      gap: 1.4em;
+    }
+    &__button-container {
+      align-self: center;
+    }
+    &__button {
+      font-size: 20px;
+    }
+
+    &__wave {
+      bottom: -100px;
+    }
+    &__word {
+      font-size: rem(64);
+      font-family: $font-family-title;
+      text-transform: uppercase;
+      position: relative;
+      /* add image to after pseudo element */
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background-image: url("@/img/highlighter.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: -1;
+      }
+    }
+    &__video {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      z-index: 0;
+      pointer-events: none;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0 !important;
+      transform: translateX(0%);
+      video {
+        position: absolute;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
