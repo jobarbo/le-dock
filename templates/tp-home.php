@@ -9,10 +9,10 @@ get_header(); ?>
 <section class="hero">
     <div class="hero__video">
 
-        <video autoplay muted loop src="<?= $hero['video']['url'] ?>"></video>
+        <video data-hero-video autoplay muted loop src="<?= $hero['video']['url'] ?>"></video>
 
 
-        <iframe title="Placeholder video" width="500" height="500" src="<?= $hero['video'] ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+
 
     </div>
     <div data-hero-container class="hero__container">
@@ -22,7 +22,7 @@ get_header(); ?>
                 <div class="splide__track">
                     <ul class="hero__word-slider splide__list">
                         <?php foreach ($hero['word_list'] as $word) : ?>
-                            <li class="hero__word splide__slide"><?= $word['word'] ?></li>
+                            <li data-word-slide class="hero__word splide__slide"><?= $word['word'] ?></li>
                         <?php endforeach; ?>
                     </ul>
                 </div>
