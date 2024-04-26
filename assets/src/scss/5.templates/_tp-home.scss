@@ -36,6 +36,33 @@
   &__content {
     margin-top: 2em;
   }
+  &__slider-track {
+    overflow: visible;
+    cursor: grab;
+  }
+
+  &__item.is-active {
+    .projects__content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .projects__image {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  &__content {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: 0.25s 0.25s;
+  }
+  &__image {
+    height: 650px;
+    max-height: 60vh;
+    transform: scale(0.8);
+    opacity: 0.4;
+    transition: 0.25s ease-in-out;
+  }
   &__title {
     margin-bottom: 0.5em;
   }
