@@ -27,4 +27,16 @@
     padding: $ptb $plr;
     max-width: $mxw;
   }
+
+  @include min-width($desktop-threshold) {
+    // if $plr is not set, use the default large desktop padding
+    @if $plr == $mobile-padding {
+      $plr: $large-desktop-padding;
+    } @else if $plr == $tablet-padding {
+      $plr: $large-desktop-padding;
+    } @else if $plr == $desktop-padding {
+      $plr: $large-desktop-padding;
+    }
+    padding: $ptb $plr;
+  }
 }

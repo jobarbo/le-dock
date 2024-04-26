@@ -9,7 +9,6 @@ class WordSlider {
       window.getComputedStyle(this.slide).getPropertyValue("font-size"),
       10
     );
-    console.log(this.fontSize);
     this.manageEvents();
 
     // Managing events

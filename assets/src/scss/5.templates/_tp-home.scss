@@ -5,6 +5,67 @@
 .about {
   position: relative;
   z-index: 2;
+  margin-bottom: -50px;
+  &__container {
+    @include container;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  &__text {
+    font-size: rem(24);
+  }
+  &__image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    img {
+      height: 70%;
+      object-fit: contain;
+    }
+  }
+}
+
+.projects {
+  &__container {
+    @include container(0);
+  }
+  &__content {
+    margin-top: 2em;
+  }
+  &__title {
+    margin-bottom: 0.5em;
+  }
+  &__name {
+    font-size: rem(40);
+    margin: 0.25em 0;
+  }
+  &__description {
+    max-width: 500px;
+  }
+  &__year {
+    font-family: $font-family-default;
+    font-size: rem(21);
+    font-weight: 500;
+    text-decoration: i;
+    color: $yellow;
+    margin: 0;
+  }
+  &__logo-container {
+    background-color: $main-blue;
+  }
+
+  &__logo-item {
+    padding: 3em 0;
+    width: 300px;
+    img {
+      height: 100%;
+      object-fit: contain;
+    }
+  }
 }
 
 @include mobile-only {

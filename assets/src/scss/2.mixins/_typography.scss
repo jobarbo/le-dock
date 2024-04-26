@@ -3,7 +3,7 @@
 // ==========================================================================
 
 @mixin paragraph($color: $black) {
-  font: 300 rem(16) $font-family-default;
+  font: 400 rem(16) $font-family-default;
   margin-bottom: 1em;
   letter-spacing: 0.02em;
   line-height: 1.2em;
@@ -12,7 +12,7 @@
     font-size: rem(16);
   }
   @include desktop-only {
-    font-size: rem(18);
+    font-size: rem(23);
   }
 }
 
@@ -20,7 +20,7 @@
   li {
     display: flex;
     align-items: center;
-    font: 500 rem(14) $font-family-default;
+    font: 400 rem(14) $font-family-default;
     color: $black;
     padding: 0.2em 0;
     &:before {
@@ -40,4 +40,8 @@
       }
     }
   }
+}
+
+p {
+  @include paragraph;
 }

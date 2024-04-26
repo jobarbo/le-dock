@@ -85,6 +85,7 @@
   &__word {
     font-size: rem(28);
     font-family: $font-family-title;
+    font-weight: 800;
     text-transform: uppercase;
     position: relative;
     padding-left: 20px;
@@ -169,7 +170,8 @@
   }
   &__button {
     color: $white;
-    padding: 0.75em 2em;
+    padding: 0.75em 2em 0.45em 2em;
+    font-weight: 400;
     cursor: pointer;
     &--back,
     &--play {
@@ -218,7 +220,7 @@
       align-self: center;
     }
     &__button {
-      font-size: 20px;
+      font-size: 23px;
     }
 
     &__wave {

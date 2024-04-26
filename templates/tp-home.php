@@ -8,12 +8,7 @@ get_header(); ?>
 <?php $hero = get_field('hero'); ?>
 <section class="hero">
     <div class="hero__video">
-
         <video data-hero-video autoplay muted loop src="<?= $hero['video']['url'] ?>"></video>
-
-
-
-
     </div>
     <div data-hero-container class="hero__container">
         <div data-hero-text class="hero__title-container">
@@ -87,17 +82,55 @@ get_header(); ?>
         <h2 class="projects__title"><?= $projects['title'] ?></h2>
         <div class="projects__list">
             <!-- load content from custom post type here -->
+
+            <?php
+            $args = array(
+                'post_type' => 'projet',
+                'posts_per_page' => 3,
+                'orderby' => 'date',
+                'order' => 'ASC'
+            );
+
+            $query = new WP_Query($args);
+
+            if ($query->have_posts()) {
+                while ($query->have_posts()) {
+                    $query->the_post();
+                    $permalink = get_permalink($query->ID);
+                    $name = get_the_title($query->ID);
+                    $hero = get_field('hero', $query->ID);
+                    $content = get_field('content', $query->ID);
+                    $gallery = get_field('gallery', $query->ID); ?>
+                    <div class="projects__item">
+                        <div class="projects__image">
+                            <img src="<?= $hero['image']['url']  ?>" alt="Image">
+                        </div>
+                        <div class="projects__content">
+                            <p class="projects__year"><?= $content['year'] ?></p>
+                            <h3 class="projects__name"><?= $content['title'] ?></h3>
+                            <p class="projects__description"><?= $content['text'] ?></p>
+                        </div>
+                    </div>
+            <?php
+                }
+            }
+            wp_reset_postdata(); ?>
+
+
         </div>
     </div>
-    <div class="projects__logo-container">
-        <ul class="projects__logo-list">
-            <?php
-            foreach ($projects['logo_list'] as $logo) : ?>
-                <li class="projects__logo-item">
-                    <img src="<?= $logo['logo']['url'] ?>" alt="Logo">
-                </li>
-            <?php endforeach; ?>
-        </ul>
+    <div class="projects__logo-container splide">
+        <div class="splide__track">
+            <ul class="projects__logo-list splide__list">
+                <?php
+                foreach ($projects['logo_list'] as $logo) : ?>
+                    <li data-logo-slide class="projects__logo-item splide__slide">
+                        <img src="<?= $logo['logo']['url'] ?>" alt="Logo">
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+
     </div>
 </section>
 
