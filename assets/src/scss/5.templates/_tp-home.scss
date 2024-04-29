@@ -120,6 +120,7 @@
 }
 
 .services {
+  position: relative;
   &__container {
     @include container;
     display: grid;
@@ -127,10 +128,26 @@
     align-items: flex-start;
   }
 
+  &__list {
+    visibility: hidden;
+    pointer-events: none;
+  }
+
   &__item p {
     font-size: 25px;
     font-weight: 800;
     color: $secondary-white;
+  }
+
+  &__cloud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    p {
+      font-family: $font-family-default;
+      font-weight: 800;
+      white-space: nowrap;
+    }
   }
 }
 

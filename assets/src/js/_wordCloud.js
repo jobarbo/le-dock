@@ -39,16 +39,12 @@ class WordCloud {
     this.myChart = d3
       .select("[data-services-cloud]")
       .append("div")
-      .classed("svg-container", true)
-      .append("svg")
-      .attr("preserveAspectRatio", "xMinYMin meet")
-      .attr("viewBox", "0 0 1000 800")
-      .classed("svg-content-responsive", true);
+      .classed("services__word-container", true);
 
     // I want the gravity to be centered in the middle of the screen
     let simulation = d3
       .forceSimulation(this.nodes)
-      .force("charge", d3.forceManyBody().strength(-30))
+      .force("charge", d3.forceManyBody().strength(-50))
       .force("center", d3.forceCenter(this.w / 2, this.h / 2));
     let link = this.myChart
       .selectAll("line")
@@ -61,7 +57,7 @@ class WordCloud {
       .selectAll("circle")
       .data(this.nodes)
       .enter()
-      .append("g");
+      .append("div");
 
     // Keep track of the previously selected node
 
@@ -83,7 +79,8 @@ class WordCloud {
       // Update the previously selected node
       prevNode = event.currentTarget;
     });
-    node
+
+    /* node
       .append("circle")
       .attr("cx", function (d) {
         return d.x;
@@ -121,7 +118,7 @@ class WordCloud {
         } else {
           return "black";
         }
-      });
+      }); */
 
     /*     function dragstarted(event, d) {
       if (!event.active) simulation.alphaTarget(0.3).restart();
@@ -141,8 +138,8 @@ class WordCloud {
     } */
 
     simulation.on("tick", function (e) {
-      node.attr("transform", function (d, i) {
-        return "translate(" + d.x + "," + d.y + ")";
+      node.attr("style", function (d, i) {
+        return `position:absolute; transform: translate(${d.x}px, ${d.y}px)`;
       });
 
       link
@@ -162,26 +159,21 @@ class WordCloud {
 
     // Add text to the nodes
     node
-      .append("text")
+      .append("p")
       .text(function (d) {
         return d.name;
       })
       .attr("font-family", "anek", "Helvetica Neue, Helvetica")
       .attr("font-weight", "800")
-      .attr("fill", (d, i) => {
+      .attr("style", (d, i) => {
         if (d.value <= 30) {
-          return this.palette.gray;
+          return `color: ${this.palette.gray}`;
         } else if (d.value > 30) {
-          return this.palette.blue;
+          return `color: ${this.palette.blue}`;
         } else {
-          return this.palette.blue;
+          return `color: ${this.palette.gray}`;
         }
       })
-      .attr("text-anchor", function (d, i) {
-        return "middle";
-      })
-
-      .attr("dominant-baseline", "middle")
       .attr("font-size", function (d, i) {
         return d.value;
       });
