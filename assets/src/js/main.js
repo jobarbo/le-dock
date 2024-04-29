@@ -3,6 +3,7 @@ import Hero from "./_hero";
 import WordSlider from "./_wordSlider";
 import LogoSlider from "./_logoSlider";
 import ProjectSlider from "./_projectSlider";
+import WordCloud from "./_wordCloud";
 import Utils from "./helpers/_utils";
 
 const App = {
@@ -18,6 +19,7 @@ const App = {
       const wordSlider = new WordSlider();
       const logoSlider = new LogoSlider();
       const projectSlider = new ProjectSlider();
+      const wordCloud = new WordCloud();
     }
     initGeneral();
   },
