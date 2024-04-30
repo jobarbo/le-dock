@@ -142,16 +142,16 @@ get_header(); ?>
 <?php $services = get_field('services'); ?>
 <section class="services">
     <div class="services__container">
-        <ul class="services__list">
+        <ul data-services-list class="services__list">
             <?php foreach ($services['list'] as $service) : ?>
                 <li class="services__item">
                     <p class="service"><?= $service['item'] ?></p>
                 </li>
             <?php endforeach; ?>
         </ul>
-
+        <div data-services-cloud class="services__cloud"></div>
     </div>
-    <div data-services-cloud class="services__cloud"></div>
+
 </section>
 
 <?php $talents = get_field('talents'); ?>

@@ -16,7 +16,7 @@
 	$header = get_field('header', 'option');
 	$navigation = get_field('header_nav', 'option'); ?>
 	<div data-scroll-container class="page-wrapper">
-		<header data-scroll-section class="header">
+		<header data-scroll-section data-header class="header">
 			<div class="header__container">
 				<a class="header__logo" href="<?php echo get_home_url(); ?>">
 					<img src="<?= $header['logo'] ?>" alt="Logo">

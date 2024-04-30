@@ -2,32 +2,39 @@ import * as d3 from "d3";
 
 class WordCloud {
   constructor() {
-    this.w = 1000;
-    this.h = 800;
+    this.listElement = document.querySelector("[data-services-list]");
+    // get the x position of the list element
+    this.listElementX = this.listElement.getBoundingClientRect().x;
+    // get the y position of the list element
+    this.listElementY = this.listElement.getBoundingClientRect().y;
+    // get the width of the list element
+    this.listElementWidth = this.listElement.getBoundingClientRect().width;
+    // get the height of the list element
+    this.listElementHeight = this.listElement.getBoundingClientRect().height;
     this.cw = 5;
     this.palette = { blue: "#0d1c30", gray: "#d1d3db" };
 
     this.colors = d3.scaleOrdinal(d3.schemeTableau10);
     this.links = [];
     this.nodes = [
-      { name: "PRODUCTION VIDÉO", value: 31 },
-      { name: "TOURNAGE", value: 15 },
+      { name: "PRODUCTION VIDÉO", value: 41 },
+      { name: "TOURNAGE", value: 25 },
       { name: "MUSIQUE", value: 22 },
-      { name: "2D", value: 15 },
+      { name: "2D", value: 35 },
       { name: "ENTREVUE", value: 26 },
-      { name: "MONTAGE", value: 13 },
+      { name: "MONTAGE", value: 21 },
       { name: "DESIGN", value: 24 },
       { name: "PUBLICITÉ", value: 18 },
       { name: "SOUND DESIGN", value: 29 },
-      { name: "RECHERCHE", value: 14 },
-      { name: "GESTION", value: 13 },
+      { name: "RECHERCHE", value: 24 },
+      { name: "GESTION", value: 33 },
       { name: "PRODUCTION", value: 18 },
       { name: "3D", value: 27 },
-      { name: "VFX", value: 15 },
-      { name: "CONCEPTION", value: 18 },
+      { name: "VFX", value: 35 },
+      { name: "CONCEPTION", value: 22 },
       { name: "MOTION DESIGN", value: 19 },
       { name: "CONTENUE DE MARQUE", value: 26 },
-      { name: "FILM D'ENTREPRISE", value: 12 },
+      { name: "FILM D'ENTREPRISE", value: 22 },
     ];
 
     this.myChart = "";
@@ -39,13 +46,19 @@ class WordCloud {
     this.myChart = d3
       .select("[data-services-cloud]")
       .append("div")
-      .classed("services__word-container", true);
-
+      .classed("services__word-container", true)
+      .attr(
+        "style",
+        `width: ${this.listElementWidth}px; height: ${this.listElementHeight}px`
+      );
     // I want the gravity to be centered in the middle of the screen
     let simulation = d3
       .forceSimulation(this.nodes)
       .force("charge", d3.forceManyBody().strength(-50))
-      .force("center", d3.forceCenter(this.w / 2, this.h / 2));
+      .force(
+        "center",
+        d3.forceCenter(this.listElementWidth / 2.5, this.listElementHeight / 2)
+      );
     let link = this.myChart
       .selectAll("line")
       .data(this.links)
@@ -163,19 +176,19 @@ class WordCloud {
       .text(function (d) {
         return d.name;
       })
-      .attr("font-family", "anek", "Helvetica Neue, Helvetica")
-      .attr("font-weight", "800")
-      .attr("style", (d, i) => {
-        if (d.value <= 30) {
-          return `color: ${this.palette.gray}`;
-        } else if (d.value > 30) {
-          return `color: ${this.palette.blue}`;
+      .style("font-family", "anek")
+      .style("font-weight", "800")
+      .style("color", (d, i) => {
+        if (d.value <= 40) {
+          return `${this.palette.gray}`;
+        } else if (d.value > 40) {
+          return `${this.palette.blue}`;
         } else {
-          return `color: ${this.palette.gray}`;
+          return `${this.palette.gray}`;
         }
       })
-      .attr("font-size", function (d, i) {
-        return d.value;
+      .style("font-size", function (d, i) {
+        return `${d.value}px`;
       });
     // I want that when I click on a node, that node becomes the center of the screen and changes its color to red and resets the color of the previous clicked node
   }

@@ -140,9 +140,11 @@
   }
 
   &__cloud {
+    @include container;
     position: absolute;
     top: 0;
     left: 0;
+
     p {
       font-family: $font-family-default;
       font-weight: 800;
