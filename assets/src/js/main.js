@@ -4,6 +4,7 @@ import WordSlider from "./_wordSlider";
 import LogoSlider from "./_logoSlider";
 import ProjectSlider from "./_projectSlider";
 import WordCloud from "./_wordCloud";
+import TalentSlider from "./_talentSlider";
 import Utils from "./helpers/_utils";
 
 const App = {
@@ -19,6 +20,7 @@ const App = {
       const wordSlider = new WordSlider();
       const logoSlider = new LogoSlider();
       const projectSlider = new ProjectSlider();
+      const talentSlider = new TalentSlider();
       const wordCloud = new WordCloud();
     }
     initGeneral();

@@ -153,5 +153,124 @@
   }
 }
 
+.talents {
+  &__container {
+    @include container;
+  }
+
+  &__title {
+    margin-bottom: 1em;
+    position: relative;
+    width: fit-content;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      background-image: url("@/img/highlighter.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: -1;
+      transform: scale(1.25) translateY(-5px);
+    }
+  }
+
+  &__item {
+    display: flex;
+    max-width: 900px;
+    width: fit-content;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__image {
+    transform-origin: center;
+    transform: scale(1.25);
+  }
+  &__position {
+    font-size: 17.5px;
+    font-weight: 500;
+    color: $yellow;
+  }
+  &__name {
+    font-size: 40px;
+  }
+  &__text {
+    font-size: 20px;
+  }
+  &__quote {
+    position: relative;
+    font-size: 20px;
+    font-weight: 800;
+    color: $secondary-white;
+    letter-spacing: 0.2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+    margin-bottom: 0;
+    justify-self: flex-end;
+    &::before {
+      content: "<<";
+      font-family: manrope;
+      font-size: 1em;
+      letter-spacing: -0.3em;
+      color: $yellow;
+      position: relative;
+      top: -0.25em;
+      left: -0.25em;
+      margin-right: 0.5em;
+    }
+    &::after {
+      content: ">>";
+      font-family: manrope;
+      font-size: 1em;
+      letter-spacing: -0.3em;
+      color: $yellow;
+      position: relative;
+      top: -0.25em;
+      right: -0.25em;
+    }
+  }
+  &__track {
+    overflow: visible;
+    cursor: grab;
+  }
+
+  &__wave-container {
+    z-index: 4;
+    position: relative;
+    margin-top: -1em;
+  }
+}
+
+.contact {
+  background-color: $blue;
+  &__container {
+    @include container;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: flex-start;
+  }
+  svg {
+    margin-top: -3em;
+    z-index: 4;
+    position: relative;
+  }
+  &__title {
+    color: $white;
+  }
+  &__text {
+    color: $white;
+  }
+}
+
 @include mobile-only {
 }

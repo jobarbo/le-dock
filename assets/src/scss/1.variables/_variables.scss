@@ -30,7 +30,7 @@ $yellow: #e29927;
 }
 // Style mixins
 // ==========================================================================
-
+@include font-face(manrope, "@/fonts/manrope/Manrope-ExtraBold", 800, normal);
 @include font-face(anek, "@/fonts/anek/AnekGurmukhi-Thin", 100, normal);
 @include font-face(anek, "@/fonts/anek/AnekGurmukhi-ExtraLight", 200, normal);
 @include font-face(anek, "@/fonts/anek/AnekGurmukhi-Light", 300, normal);

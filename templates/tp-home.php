@@ -156,38 +156,40 @@ get_header(); ?>
 
 <?php $talents = get_field('talents'); ?>
 
-<section class="talents">
+<section class="talents splide">
     <div class="talents__container">
         <h2 class="talents__title"><?= $talents['title'] ?></h2>
-        <div class="talents__list">
-            <?php foreach ($talents['list'] as $talent) : ?>
-                <div class="talents__item">
-                    <div class="talents__image">
-                        <img style="height: 350px; width:350px" src="<?= $talent['pfp']['url'] ?>" alt="Image">
+        <div class="talents__track splide__track">
+            <div class="talents__list splide__list">
+                <?php foreach ($talents['list'] as $talent) : ?>
+                    <div data-talents-slide class="talents__item splide__slide">
+                        <div class="talents__image">
+                            <img style="height: 350px; width:350px" src="<?= $talent['pfp']['url'] ?>" alt="Image">
+                        </div>
+                        <div class="talents__content">
+                            <p class="talents__position"><?= $talent['position'] ?></p>
+                            <h3 class="talents__name"><?= $talent['name'] ?></h3>
+                            <p class="talents__text"><?= $talent['bio'] ?></p>
+                            <p class="talents__quote"> <?= $talent['quote'] ?> </p>
+                        </div>
                     </div>
-                    <div class="talents__content">
-                        <p class="talents__position"><?= $talent['position'] ?></p>
-                        <h3 class="talents__name"><?= $talent['name'] ?></h3>
-                        <p class="talents__text"><?= $talent['bio'] ?></p>
-                        <p class="talents__quote"> <?= $talent['quote'] ?> </p>
-                    </div>
-                </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
+            </div>
         </div>
     </div>
     <div class="talents__wave-container">
-        <svg id="footer__wave-svg" data-name="footer__wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2761 307.79">
+        <svg id="footer__white-wave-svg" data-name="footer__white-wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2761 307.79">
             <defs>
                 <style>
-                    .waveblue {
-                        fill: #0D1B2F;
+                    .wave {
+                        fill: #f0f2f0;
                         stroke-width: 0px;
                     }
                 </style>
             </defs>
-            <path class="waveblue" d="M2531.4,24.99h0c-150.12,33.15-307.34,33.15-457.46,0l-.59-.13c-149.75-33.06-306.55-33.15-456.35-.25l-3.43.75c-149.79,32.9-306.6,32.82-456.35-.25l-.59-.13c-150.12-33.14-307.34-33.14-457.46,0l-.59.13c-149.75,33.06-306.55,33.15-456.35.25l-3.43-.75C160.45,7.4,80.18-.76,0,.08v307.71h2761V.14c-77.13-.06-154.26,8.22-229.6,24.85Z" />
+            <path class="wave" d="M2531.4,24.99h0c-150.12,33.15-307.34,33.15-457.46,0l-.59-.13c-149.75-33.06-306.55-33.15-456.35-.25l-3.43.75c-149.79,32.9-306.6,32.82-456.35-.25l-.59-.13c-150.12-33.14-307.34-33.14-457.46,0l-.59.13c-149.75,33.06-306.55,33.15-456.35.25l-3.43-.75C160.45,7.4,80.18-.76,0,.08v307.71h2761V.14c-77.13-.06-154.26,8.22-229.6,24.85Z" />
         </svg>
-        </svg>
+
     </div>
 </section>
 
@@ -195,6 +197,17 @@ get_header(); ?>
 <?php $contact = get_field('contact'); ?>
 
 <section class="contact">
+    <svg id="footer__wave-svg" data-name="footer__wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2761 307.79">
+        <defs>
+            <style>
+                .waveblue {
+                    fill: #0D1B2F;
+                    stroke-width: 0px;
+                }
+            </style>
+        </defs>
+        <path class="waveblue" d="M2531.4,24.99h0c-150.12,33.15-307.34,33.15-457.46,0l-.59-.13c-149.75-33.06-306.55-33.15-456.35-.25l-3.43.75c-149.79,32.9-306.6,32.82-456.35-.25l-.59-.13c-150.12-33.14-307.34-33.14-457.46,0l-.59.13c-149.75,33.06-306.55,33.15-456.35.25l-3.43-.75C160.45,7.4,80.18-.76,0,.08v307.71h2761V.14c-77.13-.06-154.26,8.22-229.6,24.85Z" />
+    </svg>
     <div class="contact__container">
         <div class="contact__content">
             <h2 class="contact__title"><?= $contact['title'] ?></h2>
