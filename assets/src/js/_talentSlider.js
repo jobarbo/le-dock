@@ -23,6 +23,7 @@ class TalentSlider {
       pagination: false,
       type: "loop",
       gap: "-4rem",
+      perPage: 1,
     });
 
     this.splide.mount();

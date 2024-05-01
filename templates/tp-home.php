@@ -214,7 +214,7 @@ get_header(); ?>
             <p class="contact__text"><?= $contact['text'] ?></p>
         </div>
         <div class="contact__form">
-            <!-- load contact form here -->
+            <?= do_shortcode('[gravityform id="2" title="false" description="false" ajax="true"]') ?>
         </div>
     </div>
 

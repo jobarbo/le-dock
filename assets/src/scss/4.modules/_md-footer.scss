@@ -3,4 +3,10 @@
 // ==========================================================================
 .footer {
   background-color: $blue;
+  &__container {
+    @include container;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: flex-start;
+  }
 }

@@ -43,13 +43,14 @@
 }
 
 @mixin title-4 {
-  font: 600 rem(25) $font-family-title;
+  font: 600 rem(16) $font-family-title;
+  font-weight: 400;
 
   @include min-width($mobile-threshold) {
-    font-size: rem(35);
+    font-size: rem(20);
   }
   @include min-width($tablet-threshold) {
-    font-size: rem(40);
+    font-size: rem(20);
   }
 }
 
