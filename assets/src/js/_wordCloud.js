@@ -3,43 +3,45 @@ import * as d3 from "d3";
 class WordCloud {
   constructor() {
     this.listElement = document.querySelector("[data-services-list]");
-    // get the x position of the list element
-    this.listElementX = this.listElement.getBoundingClientRect().x;
-    // get the y position of the list element
-    this.listElementY = this.listElement.getBoundingClientRect().y;
-    // get the width of the list element
-    this.listElementWidth = this.listElement.getBoundingClientRect().width;
-    // get the height of the list element
-    this.listElementHeight = this.listElement.getBoundingClientRect().height;
-    this.cw = 5;
-    this.palette = { blue: "#0d1c30", gray: "#d1d3db" };
+    if (this.listElement) {
+      // get the x position of the list element
+      this.listElementX = this.listElement.getBoundingClientRect().x;
+      // get the y position of the list element
+      this.listElementY = this.listElement.getBoundingClientRect().y;
+      // get the width of the list element
+      this.listElementWidth = this.listElement.getBoundingClientRect().width;
+      // get the height of the list element
+      this.listElementHeight = this.listElement.getBoundingClientRect().height;
+      this.cw = 5;
+      this.palette = { blue: "#0d1c30", gray: "#d1d3db" };
 
-    this.colors = d3.scaleOrdinal(d3.schemeTableau10);
-    this.links = [];
-    this.nodes = [
-      { name: "PRODUCTION VIDÉO", value: 41 },
-      { name: "TOURNAGE", value: 25 },
-      { name: "MUSIQUE", value: 22 },
-      { name: "2D", value: 35 },
-      { name: "ENTREVUE", value: 26 },
-      { name: "MONTAGE", value: 21 },
-      { name: "DESIGN", value: 24 },
-      { name: "PUBLICITÉ", value: 18 },
-      { name: "SOUND DESIGN", value: 29 },
-      { name: "RECHERCHE", value: 24 },
-      { name: "GESTION", value: 33 },
-      { name: "PRODUCTION", value: 18 },
-      { name: "3D", value: 27 },
-      { name: "VFX", value: 35 },
-      { name: "CONCEPTION", value: 22 },
-      { name: "MOTION DESIGN", value: 19 },
-      { name: "CONTENUE DE MARQUE", value: 26 },
-      { name: "FILM D'ENTREPRISE", value: 22 },
-    ];
+      this.colors = d3.scaleOrdinal(d3.schemeTableau10);
+      this.links = [];
+      this.nodes = [
+        { name: "PRODUCTION VIDÉO", value: 41 },
+        { name: "TOURNAGE", value: 25 },
+        { name: "MUSIQUE", value: 22 },
+        { name: "2D", value: 35 },
+        { name: "ENTREVUE", value: 26 },
+        { name: "MONTAGE", value: 21 },
+        { name: "DESIGN", value: 24 },
+        { name: "PUBLICITÉ", value: 18 },
+        { name: "SOUND DESIGN", value: 29 },
+        { name: "RECHERCHE", value: 24 },
+        { name: "GESTION", value: 33 },
+        { name: "PRODUCTION", value: 18 },
+        { name: "3D", value: 27 },
+        { name: "VFX", value: 35 },
+        { name: "CONCEPTION", value: 22 },
+        { name: "MOTION DESIGN", value: 19 },
+        { name: "CONTENUE DE MARQUE", value: 26 },
+        { name: "FILM D'ENTREPRISE", value: 22 },
+      ];
 
-    this.myChart = "";
+      this.myChart = "";
 
-    this.init();
+      this.init();
+    }
   }
 
   init() {

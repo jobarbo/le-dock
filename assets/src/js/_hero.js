@@ -6,7 +6,9 @@ class Hero {
     this.close = document.querySelector("[data-hero-close]");
     this.volume = document.querySelector("[data-hero-volume]");
     this.video = document.querySelector("[data-hero-video]");
-    this.manageEvents();
+    if (this.video) {
+      this.manageEvents();
+    }
   }
 
   manageEvents() {

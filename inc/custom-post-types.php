@@ -11,7 +11,7 @@ function create_post_type() {
         'projet',
         array(
             'labels' => array(
-                'name' => 'Projets',
+                'name' => 'Projet',
                 'singular_name' => 'Projet',
                 'add_new' => 'Ajouter un projet',
                 'add_new_item' => 'Ajouter un projet',

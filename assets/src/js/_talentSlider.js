@@ -4,7 +4,9 @@ class TalentSlider {
   constructor() {
     this.slide = document.querySelector("[data-talents-slide]");
     this.splide = "";
-    this.manageEvents();
+    if (this.slide) {
+      this.manageEvents();
+    }
   }
 
   manageEvents() {

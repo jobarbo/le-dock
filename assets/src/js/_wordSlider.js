@@ -4,13 +4,15 @@ class WordSlider {
   constructor() {
     this.slide = document.querySelector("[data-word-slide]");
     this.splide = "";
-    // get the font size of the slide, remove the px and store it in a variable as a number
-    this.fontSize = parseInt(
-      window.getComputedStyle(this.slide).getPropertyValue("font-size"),
-      10
-    );
-    this.manageEvents();
 
+    if (this.slide) {
+      // get the font size of the slide, remove the px and store it in a variable as a number
+      this.fontSize = parseInt(
+        window.getComputedStyle(this.slide).getPropertyValue("font-size"),
+        10
+      );
+      this.manageEvents();
+    }
     // Managing events
   }
 

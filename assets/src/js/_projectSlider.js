@@ -4,7 +4,9 @@ class ProjectSlider {
   constructor() {
     this.slide = document.querySelector("[data-project-slide]");
     this.splide = "";
-    this.manageEvents();
+    if (this.slide) {
+      this.manageEvents();
+    }
   }
 
   manageEvents() {

@@ -3,7 +3,9 @@ class Nav {
     this.toggle = document.querySelector("[data-nav-toggle]");
     this.nav = document.querySelector("[data-nav]");
     this.header = document.querySelector("[data-header]");
-    this.manageEvents();
+    if (this.nav) {
+      this.manageEvents();
+    }
   }
 
   manageEvents() {

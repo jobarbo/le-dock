@@ -4,7 +4,9 @@ class LogoSlider {
   constructor() {
     this.slide = document.querySelector("[data-logo-slide]");
     this.splide = "";
-    this.manageEvents();
+    if (this.slide) {
+      this.manageEvents();
+    }
   }
 
   manageEvents() {
