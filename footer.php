@@ -21,22 +21,22 @@ $pages = get_field('footer_nav', 'option');
           <a href="<?= $footer['email']['url']  ?>" class="footer__email"><?= $footer['email']['title']  ?></a>
         </div>
         <div class="footer__pages">
-          <h4 class="footer__pages-title"><?= $footer['pages_title'] ?></h4>
-          <ul class="footer__pages-list">
+          <h4 class="footer__list-title"><?= $footer['pages_title'] ?></h4>
+          <ul class="footer__list footer__list--pages">
             <?php foreach ($pages['nav_list'] as $page) : ?>
-              <li class="footer__pages-item">
-                <a href="<?= $page['nav_item']['url'] ?>" class="footer__pages-link"><?= $page['nav_item']['title'] ?></a>
+              <li class="footer__list-item">
+                <a href="<?= $page['nav_item']['url'] ?>" class="footer__list-link"><?= $page['nav_item']['title'] ?></a>
               </li>
             <?php endforeach; ?>
           </ul>
 
         </div>
         <div class="footer__socials">
-          <h4 class="footer__socials-title"><?= $footer['socials_title'] ?></h4>
-          <ul class="footer__socials-list">
+          <h4 class="footer__list-title"><?= $footer['socials_title'] ?></h4>
+          <ul class="footer__list footer__list--socials">
             <?php foreach ($footer['social_list'] as $social) : ?>
-              <li class="footer__socials-item">
-                <a href="<?= $social['link']['url'] ?>" class="footer__socials-link">
+              <li class="footer__list-item">
+                <a href="<?= $social['link']['url'] ?>" class="footer__list-link">
                   <?= $social['link']['title'] ?>
                 </a>
               </li>
@@ -45,8 +45,9 @@ $pages = get_field('footer_nav', 'option');
         </div>
       </div>
     </div>
+    <hr>
     <div class="footer__bottom">
-      <hr>
+
       <ul class="footer__legal-list">
         <?php foreach ($footer['legal_list'] as $legal) : ?>
           <li class="footer__legal-item">
