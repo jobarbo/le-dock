@@ -38,6 +38,18 @@ function dequeue_jquery_migrate(&$scripts) {
         $scripts->add('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js', null, null, true);
     }
 }
+function wd_gf_update_submit_button($button_input, $form) {
+
+    //save attribute string to $button_match[1]
+    preg_match("/<input([^\/>]*)(\s\/)*>/", $button_input, $button_match);
+
+    //remove value attribute (since we aren't using an input)
+    $button_atts = str_replace("value='" . $form['button']['text'] . "' ", "", $button_match[1]);
+
+    // create the button element with the button text inside the button element instead of set as the value
+    return '<button ' . $button_atts . '><span>' . $form['button']['text'] . '</span></button>';
+}
+add_filter('gform_submit_button', 'wd_gf_update_submit_button', 10, 2);
 add_filter('wp_default_scripts', 'dequeue_jquery_migrate');
 add_action('upload_mimes', 'add_file_types_to_uploads', 1, 1);
 add_action('admin_init', 'remove_editor');

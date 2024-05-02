@@ -261,6 +261,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: flex-start;
+    gap: 4em;
   }
   svg {
     margin-top: -3em;

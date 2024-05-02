@@ -1,0 +1,65 @@
+.gform_required_legend {
+  display: none;
+}
+
+.contact__form {
+  .gform_wrapper {
+    label.gfield_label {
+      display: none;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      padding: 0.85em 1em 0.5em 1em !important;
+      border: 1px solid $tertiary-blue;
+      border-radius: 50px;
+      font-size: 20px;
+      font-weight: 400;
+      color: $white;
+      line-height: 0.1em;
+      &::placeholder {
+        color: $white;
+        line-height: 0.1em;
+      }
+    }
+    textarea {
+      border-radius: 20px;
+      padding: 1.5em 1em !important;
+    }
+    .gform_footer {
+      position: relative;
+    }
+    button[type="submit"] {
+      background-color: $yellow;
+      font-weight: 500;
+      color: $white;
+      border: none;
+      border-radius: 50px;
+      padding: 0.85em 1em 0.5em 1em;
+      letter-spacing: 0.1em;
+      transition: background-color 0.3s ease-in-out;
+      margin-bottom: 0 !important;
+      display: flex;
+      line-height: 15px;
+      &:hover {
+        background-color: $white;
+        color: $yellow;
+        &::after {
+          background-image: url("@/img/fleche-jaune.svg");
+        }
+      }
+      &::after {
+        content: "";
+        display: block;
+        width: 10px;
+        height: 10px;
+        margin-left: 0.5em;
+        background-image: url("@/img/fleche.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+  }
+}
