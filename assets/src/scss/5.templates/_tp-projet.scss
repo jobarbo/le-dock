@@ -18,12 +18,26 @@
   &__container {
     @include container;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 4fr 3fr;
+    gap: 1em;
+  }
+  &__text {
+    padding-right: 4em;
+  }
+  &__services-title {
+    font-size: 23px;
+    color: $yellow;
+    font-weight: 600;
+    margin-bottom: 1em;
   }
 
   &__services-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+  &__services-item {
+    font-size: 23px;
+    font-weight: 400;
   }
 }
 

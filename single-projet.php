@@ -67,8 +67,77 @@ get_header(); ?>
     </div>
 </section>
 
+<!-- make a section that features the previous and next project -->
+<?php
+// if the is a previous post show it else show last post
+$prev_post = get_previous_post();
+$next_post = get_next_post();
+if (!$prev_post) {
+    $args = array(
+        'post_type' => 'projet',
+        'posts_per_page' => 1,
+        'order' => 'DESC',
+        'orderby' => 'date',
+        'post_status' => 'publish',
+        'post__not_in' => array(get_the_ID())
+    );
+    $last_post = get_posts($args);
+    $prev_post = $last_post[0];
+}
+if (!$next_post) {
+    $args = array(
+        'post_type' => 'projet',
+        'posts_per_page' => 1,
+        'order' => 'ASC',
+        'orderby' => 'date',
+        'post_status' => 'publish',
+        'post__not_in' => array(get_the_ID())
+    );
+    $first_post = get_posts($args);
+    $next_post = $first_post[0];
+}
+?>
+
+<?php
+// get the previous and next post acf fields
+$prev_post_acf = get_field('hero', $prev_post->ID);
+$next_post_acf = get_field('hero', $next_post->ID);
+?>
+<section class="projet-navigation">
+    <div class="projet-navigation__container">
+        <div class="projet-navigation__prev">
+            <div class="projet-navigation__prev-image">
+                <img src="<?= $prev_post_acf['image']['url'] ?>" alt="Image">
+            </div>
+            <?php if ($prev_post) : ?>
+                <a href="<?= get_permalink($prev_post->ID) ?>" class="projet-navigation__link">
+                    <div class="projet-navigation__link-container">
+                        <h5 class="projet-navigation__link-title">Projet précédent</h5>
+                        <h4 class="projet-navigation__link-name"><?= $prev_post->post_title ?></h4>
+                    </div>
+                </a>
+            <?php endif; ?>
+        </div>
+        <div class="projet-navigation__next">
+            <div class="projet-navigation__next-image">
+                <img src="<?= $next_post_acf['image']['url'] ?>" alt="Image">
+            </div>
+            <?php if ($next_post) : ?>
+                <a href="<?= get_permalink($next_post->ID) ?>" class="projet-navigation__link">
+                    <div class="projet-navigation__link-container">
+                        <h5 class="projet-navigation__link-title">Projet suivant</h5>
+                        <h4 class="projet-navigation__link-name"><?= $next_post->post_title ?></h4>
+                    </div>
+                </a>
+            <?php endif; ?>
+        </div>
+    </div>
+</section>
+
 <?php
 
 get_template_part('modules/md-contact'); ?>
+
+
 
 <?php get_footer(); ?>
