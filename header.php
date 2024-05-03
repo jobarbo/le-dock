@@ -16,16 +16,25 @@
 	$header = get_field('header', 'option');
 	$navigation = get_field('header_nav', 'option'); ?>
 	<div data-scroll-container class="page-wrapper">
-		<header data-scroll-section data-header class="header">
+		<?php
+		// add a class to the header if the page is not the home page
+		$header_class = is_front_page() ? 'header' : 'header header--alt';
+		$link_class = is_front_page() ? 'header__nav-link' : 'header__nav-link header__nav-link--alt';
+		?>
+		<header data-scroll-section data-header class="<?= $header_class  ?>">
 			<div class="header__container">
 				<a class="header__logo" href="<?php echo get_home_url(); ?>">
-					<img src="<?= $header['logo'] ?>" alt="Logo">
+					<?php if ($header_class === 'header') : ?>
+						<img src="<?= $header['logo']['url'] ?>" alt="Logo">
+					<?php else : ?>
+						<img src="<?= $header['logo_alt']['url'] ?>" alt="Logo">
+					<?php endif; ?>
 				</a>
 				<nav class="header__nav">
 					<ul class="header__nav-list header__nav-list--desktop">
 						<?php foreach ($navigation['nav_list'] as $nav) : ?>
 							<li class="header__nav-item">
-								<a href="<?= $nav['nav_item']['url'] ?>" class="header__nav-link"><?= $nav['nav_item']['title'] ?></a>
+								<a href="<?= $nav['nav_item']['url'] ?>" class="<?= $link_class ?>"><?= $nav['nav_item']['title'] ?></a>
 							</li>
 						<?php endforeach; ?>
 					</ul>

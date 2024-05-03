@@ -58,6 +58,9 @@
     font-size: 1.7rem;
     opacity: 1;
     transition: opacity 0.3s;
+    &--alt {
+      color: $blue;
+    }
     &:hover {
       opacity: 0.7;
     }
@@ -123,7 +126,6 @@
       }
     }
     &__nav-link {
-      color: $text-color-default;
       font-size: 1.43rem;
       opacity: 1;
       transition: opacity 0.3s;

@@ -1,6 +1,32 @@
 // ==========================================================================
 // TEMPLATES - projet
 // ==========================================================================
+.projet-hero {
+  position: relative;
+  &__wave {
+    margin-bottom: -2px;
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+.projet-info {
+  &__container {
+    @include container;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__services-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 .projet-gallery {
   margin-bottom: 10em;
   &__container {
