@@ -24,13 +24,14 @@ class LogoSlider {
       arrows: false,
       pagination: false,
       drag: "free",
-      perPage: 4,
+      perPage: 2,
       start: 0,
-      gap: "6rem",
+      gap: "12rem",
       padding: "5rem",
       type: "loop",
+      autoWidth: true,
       autoScroll: {
-        speed: 2,
+        speed: 1,
       },
     });
 

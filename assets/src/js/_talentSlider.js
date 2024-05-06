@@ -24,8 +24,10 @@ class TalentSlider {
       arrows: false,
       pagination: false,
       type: "loop",
-      gap: "-4rem",
-      perPage: 1,
+      gap: "4rem",
+      perPage: 2,
+      focus: "center",
+      trimSpace: false,
     });
 
     this.splide.mount();

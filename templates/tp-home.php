@@ -131,7 +131,10 @@ get_header(); ?>
                 <?php
                 foreach ($projects['logo_list'] as $logo) : ?>
                     <li data-logo-slide class="projects__logo-item splide__slide">
-                        <img src="<?= $logo['logo']['url'] ?>" alt="Logo">
+                        <div class="projects__logo-item-container">
+                            <img src="<?= $logo['logo']['url'] ?>" alt="Logo">
+                        </div>
+
                     </li>
                 <?php endforeach; ?>
             </ul>

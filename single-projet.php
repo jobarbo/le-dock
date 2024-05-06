@@ -109,11 +109,14 @@ $next_post_acf = get_field('hero', $next_post->ID);
             <div class="projet-navigation__prev-image">
                 <img src="<?= $prev_post_acf['image']['url'] ?>" alt="Image">
             </div>
+            <div class="projet-navigation__overlay projet-navigation__overlay--prev">
+
+            </div>
             <?php if ($prev_post) : ?>
                 <a href="<?= get_permalink($prev_post->ID) ?>" class="projet-navigation__link">
                     <div class="projet-navigation__link-container">
-                        <h5 class="projet-navigation__link-title">Projet précédent</h5>
-                        <h4 class="projet-navigation__link-name"><?= $prev_post->post_title ?></h4>
+                        <h5 class="projet-navigation__link-nav"><span>Projet précédent</span></h5>
+                        <h4 class="projet-navigation__link-name"><span><?= $prev_post->post_title ?></span></h4>
                     </div>
                 </a>
             <?php endif; ?>
@@ -122,11 +125,14 @@ $next_post_acf = get_field('hero', $next_post->ID);
             <div class="projet-navigation__next-image">
                 <img src="<?= $next_post_acf['image']['url'] ?>" alt="Image">
             </div>
+            <div class="projet-navigation__overlay projet-navigation__overlay--next">
+
+            </div>
             <?php if ($next_post) : ?>
                 <a href="<?= get_permalink($next_post->ID) ?>" class="projet-navigation__link">
                     <div class="projet-navigation__link-container">
-                        <h5 class="projet-navigation__link-title">Projet suivant</h5>
-                        <h4 class="projet-navigation__link-name"><?= $next_post->post_title ?></h4>
+                        <h5 class="projet-navigation__link-nav"><span>Projet suivant</span></h5>
+                        <h4 class="projet-navigation__link-name"><span><?= $next_post->post_title ?></span></h4>
                     </div>
                 </a>
             <?php endif; ?>

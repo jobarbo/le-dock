@@ -113,8 +113,14 @@
   }
 
   &__logo-item {
-    padding: 3em 0;
-    width: 300px;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__logo-item-container {
+    height: 80px;
     img {
       height: 100%;
       object-fit: contain;
