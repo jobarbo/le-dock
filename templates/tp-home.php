@@ -107,6 +107,9 @@ get_header(); ?>
                             <div data-project-slide class="projects__item splide__slide">
                                 <div class="projects__image">
                                     <img src="<?= $hero['image']['url']  ?>" alt="Image">
+                                    <div class="projects__image-overlay">
+                                        <a href="<?= $permalink ?>" class="projects__image-link button">Voir le projet</a>
+                                    </div>
                                 </div>
                                 <div class="projects__content">
                                     <p class="projects__year"><?= $content['year'] ?></p>
