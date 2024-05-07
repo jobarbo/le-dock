@@ -248,6 +248,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-left: 1em;
   }
   &__image {
     transform-origin: center;
@@ -358,6 +359,15 @@
     }
     &__logo-item-container {
       height: 50px;
+    }
+  }
+
+  .services {
+    margin: 3em 0;
+    &__item {
+      p {
+        margin-bottom: 0;
+      }
     }
   }
 

@@ -32,7 +32,7 @@ class TalentSlider {
       breakpoints: {
         768: {
           perPage: 1,
-          gap: "2rem",
+          gap: "1rem",
         },
       },
     });
