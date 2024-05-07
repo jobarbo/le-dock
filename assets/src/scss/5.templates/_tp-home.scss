@@ -311,28 +311,6 @@
   }
 }
 
-.contact {
-  background-color: $blue;
-  &__container {
-    @include container;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: flex-start;
-    gap: 4em;
-  }
-  svg {
-    margin-top: -3em;
-    z-index: 4;
-    position: relative;
-  }
-  &__title {
-    color: $white;
-  }
-  &__text {
-    color: $white;
-  }
-}
-
 @include tablet-only {
   .about {
     &__container {

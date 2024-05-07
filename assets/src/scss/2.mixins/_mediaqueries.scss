@@ -58,7 +58,7 @@
 }
 
 @mixin mobile-only {
-  @media only screen and (max-width: #{ math.div(($mobile-threshold - 1) , $function-size-default) }rem) {
+  @media only screen and (max-width: rem($mobile-threshold-stripped)) {
     @content;
   }
 }

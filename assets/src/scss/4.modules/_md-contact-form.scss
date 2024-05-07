@@ -1,3 +1,25 @@
+.contact {
+  background-color: $blue;
+  &__container {
+    @include container;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: flex-start;
+    gap: 4em;
+  }
+  svg {
+    margin-top: -3em;
+    z-index: 4;
+    position: relative;
+  }
+  &__title {
+    color: $white;
+  }
+  &__text {
+    color: $white;
+  }
+}
+
 .gform_required_legend {
   display: none;
 }
@@ -61,6 +83,18 @@
         background-repeat: no-repeat;
         background-position: center;
       }
+    }
+  }
+}
+
+@include mobile-only {
+  .contact {
+    &__container {
+      grid-template-columns: 1fr;
+      gap: 2em;
+    }
+    &__text {
+      margin-bottom: 0;
     }
   }
 }
