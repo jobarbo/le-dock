@@ -34,6 +34,11 @@ class TalentSlider {
           perPage: 1,
           gap: "1rem",
         },
+        450: {
+          perPage: 1,
+          gap: "1rem",
+          autoplay: true,
+        },
       },
     });
 

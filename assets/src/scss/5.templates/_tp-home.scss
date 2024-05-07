@@ -374,4 +374,78 @@
 }
 
 @include mobile-only {
+  .about {
+    &__container {
+      align-items: center;
+      justify-content: center;
+    }
+    &__image {
+      width: 100%;
+      height: 400px;
+      position: relative;
+      top: unset;
+      right: unset;
+      img {
+        height: 70%;
+        object-fit: contain;
+      }
+    }
+    &__text {
+      padding-right: 0;
+      margin-bottom: 0;
+    }
+    &__content {
+      margin-bottom: 0;
+    }
+  }
+
+  .projects {
+    &__title {
+      z-index: 4;
+      position: relative;
+    }
+  }
+
+  .services {
+    &__item {
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .talents {
+    &__title {
+      position: relative;
+      z-index: 3;
+    }
+    &__image {
+      transform: scale(1);
+      flex: 1;
+    }
+    &__content {
+      margin-top: 1em;
+      margin-left: 0;
+      align-items: center;
+      flex: 2;
+    }
+    &__position {
+      font-size: 15px;
+    }
+    &__name {
+      font-size: 35px;
+    }
+    &__text {
+      font-size: 18px;
+    }
+    &__quote {
+      font-size: 18px;
+    }
+    &__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
 }

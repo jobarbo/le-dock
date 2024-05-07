@@ -13,11 +13,11 @@ class WordCloud {
       // get the height of the list element
       this.listElementHeight = this.listElement.getBoundingClientRect().height;
       this.cw = 5;
-      this.palette = { blue: "#0d1c30", gray: "#d1d3db" };
-
-      this.colors = d3.scaleOrdinal(d3.schemeTableau10);
       this.strength = -50;
+      this.palette = { blue: "#0d1c30", gray: "#d1d3db" };
+      this.colors = d3.scaleOrdinal(d3.schemeTableau10);
       this.links = [];
+      this.myChart = "";
       this.nodes = [
         { name: "PRODUCTION VIDÉO", value: 41 },
         { name: "TOURNAGE", value: 25 },
@@ -39,8 +39,6 @@ class WordCloud {
         { name: "FILM D'ENTREPRISE", value: 22 },
       ];
 
-      this.myChart = "";
-
       this.init();
 
       // check resize
@@ -61,8 +59,10 @@ class WordCloud {
   }
 
   init() {
-    if (window.innerWidth < 769) {
+    if (window.innerWidth < 769 && window.innerWidth > 450) {
       this.strength = -30;
+    } else if (window.innerWidth < 450) {
+      this.strength = -5;
     } else {
       this.strength = -50;
     }
@@ -80,7 +80,7 @@ class WordCloud {
       .force("charge", d3.forceManyBody().strength(this.strength))
       .force(
         "center",
-        d3.forceCenter(this.listElementWidth / 2.5, this.listElementHeight / 2)
+        d3.forceCenter(this.listElementWidth / 2.75, this.listElementHeight / 2)
       );
     let link = this.myChart
       .selectAll("line")
@@ -211,8 +211,10 @@ class WordCloud {
         }
       })
       .style("font-size", function (d, i) {
-        if (window.innerWidth < 769) {
+        if (window.innerWidth < 769 && window.innerWidth > 450) {
           return `${d.value / 1.5}px`;
+        } else if (window.innerWidth < 450) {
+          return `${d.value / 2}px`;
         } else {
           return `${d.value}px`;
         }
