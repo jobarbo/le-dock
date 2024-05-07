@@ -171,7 +171,7 @@ get_header(); ?>
                 <?php foreach ($talents['list'] as $talent) : ?>
                     <div data-talents-slide class="talents__item splide__slide">
                         <div class="talents__image">
-                            <img style="height: 350px; width:350px" src="<?= $talent['pfp']['url'] ?>" alt="Image">
+                            <img src="<?= $talent['pfp']['url'] ?>" alt="Image">
                         </div>
                         <div class="talents__content">
                             <p class="talents__position"><?= $talent['position'] ?></p>

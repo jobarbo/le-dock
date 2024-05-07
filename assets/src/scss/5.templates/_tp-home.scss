@@ -73,9 +73,9 @@
       transform: translateY(0);
     }
     .projects__image {
-      transform: scale(1);
       opacity: 1;
       position: relative;
+      transform: scale(1);
       &:hover {
         cursor: pointer;
         .projects__image-overlay {
@@ -115,9 +115,10 @@
   }
   &__image {
     height: 650px;
-    max-height: 60vh;
-    transform: scale(0.8);
+    max-height: 650px;
+    transform-origin: center;
     opacity: 0.4;
+    transform: scale(0.8);
     transition: 0.25s ease-in-out;
   }
   &__title {
@@ -196,6 +197,24 @@
 .talents {
   &__container {
     @include container;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 3;
+      pointer-events: none;
+      background: linear-gradient(
+        94deg,
+        rgb(240, 242, 240) 0%,
+        rgba(240, 242, 240, 0) 10%,
+        rgba(240, 242, 240, 0) 90%,
+        rgb(240, 242, 240) 100%
+      );
+    }
   }
 
   &__title {
@@ -310,6 +329,59 @@
   }
   &__text {
     color: $white;
+  }
+}
+
+@include tablet-only {
+  .about {
+    &__container {
+      grid-template-columns: 1fr;
+      position: relative;
+    }
+    &__image {
+      position: absolute;
+      top: 1em;
+      right: 2em;
+      width: 40%;
+    }
+  }
+
+  .projects {
+    &__image {
+      height: 400px;
+    }
+    &__logo-container {
+      margin: 2em 0;
+    }
+    &__logo-item {
+      height: 170px;
+    }
+    &__logo-item-container {
+      height: 50px;
+    }
+  }
+
+  .talents {
+    &__image {
+      transform: scale(1);
+      flex: 1;
+    }
+    &__content {
+      margin-top: 3em;
+      flex: 2;
+    }
+    &__position {
+      font-size: 15px;
+    }
+    &__name {
+      font-size: 35px;
+    }
+    &__text {
+      font-size: 18px;
+    }
+    &__quote {
+      font-size: 18px;
+    }
   }
 }
 

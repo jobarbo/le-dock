@@ -25,6 +25,13 @@ class ProjectSlider {
       pagination: false,
       type: "loop",
       gap: "-4rem",
+
+      breakpoints: {
+        768: {
+          perPage: 1,
+          gap: "-2rem",
+        },
+      },
     });
 
     this.splide.mount();

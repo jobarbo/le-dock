@@ -33,6 +33,12 @@ class LogoSlider {
       autoScroll: {
         speed: 1,
       },
+
+      breakpoints: {
+        768: {
+          gap: "6rem",
+        },
+      },
     });
 
     this.splide.mount({ AutoScroll });

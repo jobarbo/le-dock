@@ -16,6 +16,7 @@ class WordCloud {
       this.palette = { blue: "#0d1c30", gray: "#d1d3db" };
 
       this.colors = d3.scaleOrdinal(d3.schemeTableau10);
+      this.strength = -50;
       this.links = [];
       this.nodes = [
         { name: "PRODUCTION VIDÉO", value: 41 },
@@ -41,10 +42,30 @@ class WordCloud {
       this.myChart = "";
 
       this.init();
+
+      // check resize
+      window.addEventListener("resize", () => {
+        this.myChart.remove();
+        this.listElementX = this.listElement.getBoundingClientRect().x;
+        // get the y position of the list element
+        this.listElementY = this.listElement.getBoundingClientRect().y;
+        // get the width of the list element
+        this.listElementWidth = this.listElement.getBoundingClientRect().width;
+        // get the height of the list element
+        this.listElementHeight =
+          this.listElement.getBoundingClientRect().height;
+        this.myChart = "";
+        this.init();
+      });
     }
   }
 
   init() {
+    if (window.innerWidth < 769) {
+      this.strength = -30;
+    } else {
+      this.strength = -50;
+    }
     this.myChart = d3
       .select("[data-services-cloud]")
       .append("div")
@@ -56,7 +77,7 @@ class WordCloud {
     // I want the gravity to be centered in the middle of the screen
     let simulation = d3
       .forceSimulation(this.nodes)
-      .force("charge", d3.forceManyBody().strength(-50))
+      .force("charge", d3.forceManyBody().strength(this.strength))
       .force(
         "center",
         d3.forceCenter(this.listElementWidth / 2.5, this.listElementHeight / 2)
@@ -190,7 +211,11 @@ class WordCloud {
         }
       })
       .style("font-size", function (d, i) {
-        return `${d.value}px`;
+        if (window.innerWidth < 769) {
+          return `${d.value / 1.5}px`;
+        } else {
+          return `${d.value}px`;
+        }
       });
     // I want that when I click on a node, that node becomes the center of the screen and changes its color to red and resets the color of the previous clicked node
   }

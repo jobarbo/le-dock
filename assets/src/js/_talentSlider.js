@@ -28,6 +28,13 @@ class TalentSlider {
       perPage: 2,
       focus: "center",
       trimSpace: false,
+      autoWidth: true,
+      breakpoints: {
+        768: {
+          perPage: 1,
+          gap: "2rem",
+        },
+      },
     });
 
     this.splide.mount();
