@@ -59,7 +59,7 @@ class WordCloud {
   }
 
   init() {
-    if (window.innerWidth < 769 && window.innerWidth > 450) {
+    if (window.innerWidth < 850 && window.innerWidth > 450) {
       this.strength = -30;
     } else if (window.innerWidth < 450) {
       this.strength = -5;
@@ -80,7 +80,7 @@ class WordCloud {
       .force("charge", d3.forceManyBody().strength(this.strength))
       .force(
         "center",
-        d3.forceCenter(this.listElementWidth / 2.75, this.listElementHeight / 2)
+        d3.forceCenter(this.listElementWidth / 2.5, this.listElementHeight / 2)
       );
     let link = this.myChart
       .selectAll("line")
@@ -175,7 +175,7 @@ class WordCloud {
 
     simulation.on("tick", function (e) {
       node.attr("style", function (d, i) {
-        return `position:absolute; transform: translate(${d.x}px, ${d.y}px)`;
+        return `position:absolute; transform: translate(${d.x}px, ${d.y}px); transform-origin: center;`;
       });
 
       link
@@ -211,7 +211,7 @@ class WordCloud {
         }
       })
       .style("font-size", function (d, i) {
-        if (window.innerWidth < 769 && window.innerWidth > 450) {
+        if (window.innerWidth < 850 && window.innerWidth > 450) {
           return `${d.value / 1.5}px`;
         } else if (window.innerWidth < 450) {
           return `${d.value / 2}px`;

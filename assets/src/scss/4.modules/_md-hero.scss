@@ -95,8 +95,7 @@
     overflow: hidden;
     width: fit-content;
     /* add image to after pseudo element */
-    &.is-prev,
-    &.is-next {
+    &:not(.is-active) {
       opacity: 0.5;
     }
     &.is-active {

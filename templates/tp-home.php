@@ -15,7 +15,7 @@ get_header(); ?>
             <h1 class="hero__title"><?= $hero['title'] ?></h1>
             <div class="splide">
                 <div class="splide__track">
-                    <ul class="hero__word-slider splide__list">
+                    <ul data-word-slider class="hero__word-slider splide__list">
                         <?php foreach ($hero['word_list'] as $word) : ?>
                             <li data-word-slide class="hero__word splide__slide">
                                 <?= $word['word'] ?></li>

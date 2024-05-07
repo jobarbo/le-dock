@@ -107,6 +107,11 @@
     border: 1px solid $white;
     padding: 0.85em 1em 0.5em 1em;
     border-radius: 50px;
+    transition: 0.25s;
+    &:hover {
+      background-color: $white;
+      color: $blue;
+    }
   }
   &__content {
     opacity: 0;
@@ -181,10 +186,13 @@
   }
 
   &__cloud {
-    @include container;
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     p {
       font-family: $font-family-default;
@@ -249,10 +257,12 @@
     flex-direction: column;
     justify-content: center;
     margin-left: 1em;
+    flex: 1;
   }
   &__image {
     transform-origin: center;
     transform: scale(1.25);
+    flex: 1;
   }
   &__position {
     font-size: 17.5px;
@@ -443,9 +453,13 @@
     }
     &__item {
       display: flex;
-      flex-direction: column;
+      flex-direction: column-reverse;
       align-items: center;
       text-align: center;
+    }
+    &__wave-container {
+      margin-top: -3em;
+      margin-bottom: 3em;
     }
   }
 }

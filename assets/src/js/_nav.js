@@ -2,6 +2,7 @@ class Nav {
   constructor() {
     this.toggle = document.querySelector("[data-nav-toggle]");
     this.nav = document.querySelector("[data-nav]");
+    this.navItem = document.querySelectorAll("[data-nav-item]");
     this.header = document.querySelector("[data-header]");
     if (this.nav) {
       this.manageEvents();
@@ -25,8 +26,12 @@ class Nav {
   }
 
   toggleNav() {
+    this.header.classList.toggle(`${this.header.classList[0]}--open`);
     this.nav.classList.toggle(`${this.nav.classList[0]}--open`);
     this.toggle.classList.toggle(`${this.toggle.classList[0]}--open`);
+    this.navItem.forEach((item) => {
+      item.classList.toggle(`${item.classList[0]}--open`);
+    });
   }
 }
 

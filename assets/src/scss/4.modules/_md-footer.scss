@@ -103,6 +103,26 @@
   }
 }
 
+@include tablet-only {
+  .footer {
+    &__bottom {
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    &__legal-list {
+      gap: 0.25em;
+      margin-right: 0.5em;
+    }
+    &__legal-link {
+      font-size: 0.8rem;
+    }
+    &__copyright {
+      font-size: 0.8rem;
+      margin: 0;
+    }
+  }
+}
+
 @include mobile-only {
   .footer {
     &__container {
@@ -122,17 +142,14 @@
     &__list-title {
       margin-bottom: 0.5em;
     }
-    &__legal-list {
-      margin-right: 0;
-      margin-bottom: 1em;
-    }
 
     &__bottom {
       flex-direction: column;
       align-items: flex-start;
     }
     &__legal-list {
-      flex-direction: column;
+      margin-right: 0;
+      margin-bottom: 1em;
       align-items: flex-start;
       gap: 0.5em;
     }

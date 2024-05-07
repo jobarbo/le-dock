@@ -20,6 +20,8 @@
 		// add a class to the header if the page is not the home page
 		$header_class = is_front_page() ? 'header' : 'header header--alt';
 		$link_class = is_front_page() ? 'header__nav-link' : 'header__nav-link header__nav-link--alt';
+		$list_class = is_front_page() ? 'header__nav-list' : 'header__nav-list header__nav-list--mobile--alt';
+
 		?>
 		<header data-scroll-section data-header class="<?= $header_class  ?>">
 			<div class="header__container">
@@ -31,17 +33,17 @@
 					<?php endif; ?>
 				</a>
 				<nav class="header__nav">
-					<ul class="header__nav-list header__nav-list--desktop">
+					<ul class=" header__nav-list--desktop">
 						<?php foreach ($navigation['nav_list'] as $nav) : ?>
 							<li class="header__nav-item">
 								<a href="<?= $nav['nav_item']['url'] ?>" class="<?= $link_class ?>"><?= $nav['nav_item']['title'] ?></a>
 							</li>
 						<?php endforeach; ?>
 					</ul>
-					<ul data-nav class="header__nav-list header__nav-list--mobile">
+					<ul data-nav class="<?= $list_class ?> header__nav-list--mobile">
 						<?php foreach ($navigation['nav_list'] as $nav) : ?>
-							<li class="header__nav-item">
-								<a href="<?= $nav['nav_item']['url'] ?>" class="header__nav-link"><?= $nav['nav_item']['title'] ?></a>
+							<li data-nav-item class="header__nav-item">
+								<a href="<?= $nav['nav_item']['url'] ?>" class="<?= $link_class ?>"><?= $nav['nav_item']['title'] ?></a>
 							</li>
 						<?php endforeach; ?>
 					</ul>

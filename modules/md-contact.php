@@ -1,6 +1,6 @@
 <?php $contact = get_field('contact', 'options'); ?>
 
-<section class="contact">
+<section class="contact" id="contact">
     <svg id="footer__wave-svg" data-name="footer__wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2761 307.79">
         <defs>
             <style>
