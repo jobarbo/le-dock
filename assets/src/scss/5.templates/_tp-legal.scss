@@ -10,3 +10,19 @@
     @include container;
   }
 }
+
+@include tablet-only {
+  .legal {
+    &__title {
+      @include container(0.5em, $tablet-padding);
+    }
+  }
+}
+
+@include mobile-only {
+  .legal {
+    &__title {
+      @include container(0.5em, $mobile-padding);
+    }
+  }
+}
