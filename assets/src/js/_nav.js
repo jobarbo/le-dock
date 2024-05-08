@@ -26,6 +26,8 @@ class Nav {
   }
 
   toggleNav() {
+    // stop body from scrolling when the nav is open
+    document.body.classList.toggle("no-scroll");
     this.header.classList.toggle(`${this.header.classList[0]}--open`);
     this.nav.classList.toggle(`${this.nav.classList[0]}--open`);
     this.toggle.classList.toggle(`${this.toggle.classList[0]}--open`);

@@ -78,7 +78,7 @@ get_header(); ?>
 </section>
 
 <?php $projects = get_field('project'); ?>
-<section class="projects">
+<section id="projects" class="projects">
     <div class="projects__container">
         <h2 class="projects__title"><?= $projects['title'] ?></h2>
         <div class="projects__slider splide">
@@ -147,7 +147,7 @@ get_header(); ?>
 </section>
 
 <?php $services = get_field('services'); ?>
-<section class="services">
+<section id="services" class="services">
     <div class="services__container">
         <ul data-services-list class="services__list">
             <?php foreach ($services['list'] as $service) : ?>
@@ -165,7 +165,7 @@ get_header(); ?>
 
 <?php $talents = get_field('talents'); ?>
 
-<section class="talents splide">
+<section id="talents" class="talents splide">
     <div class="talents__container">
         <h2 class="talents__title"><?= $talents['title'] ?></h2>
         <div class="talents__track splide__track">

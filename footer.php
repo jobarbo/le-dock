@@ -7,7 +7,7 @@ $pages = get_field('footer_nav', 'option');
   <div class="footer__image-container">
     <img src="<?= $footer['image']['url'] ?>" alt="Image">
   </div>
-  <div class="footer__container">
+  <div id="location" class="footer__container">
     <div class="footer__top">
       <div class="footer__logo-container">
         <a href="<?php echo get_home_url(); ?>">

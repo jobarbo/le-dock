@@ -128,8 +128,10 @@
 @include mobile-only {
   .footer {
     &__container {
+      @include container(5em);
       grid-template-columns: 1fr;
       gap: 2em;
+      padding-bottom: 5em !important;
     }
     &__content {
       grid-template-columns: 1fr;
