@@ -17,9 +17,10 @@ class WordCloud {
       this.palette = { blue: "#0d1c30", gray: "#d1d3db" };
       this.colors = d3.scaleOrdinal(d3.schemeTableau10);
       this.links = [];
+      this.simulation;
       this.myChart = "";
       this.nodes = [
-        { name: "PRODUCTION VIDÉO", value: 41 },
+        { name: "PRODUCTION VIDÉO", value: 29 },
         { name: "TOURNAGE", value: 25 },
         { name: "MUSIQUE", value: 22 },
         { name: "2D", value: 35 },
@@ -43,17 +44,21 @@ class WordCloud {
 
       // check resize
       window.addEventListener("resize", () => {
-        this.myChart.remove();
+        // Update dimensions
         this.listElementX = this.listElement.getBoundingClientRect().x;
-        // get the y position of the list element
         this.listElementY = this.listElement.getBoundingClientRect().y;
-        // get the width of the list element
         this.listElementWidth = this.listElement.getBoundingClientRect().width;
-        // get the height of the list element
         this.listElementHeight =
           this.listElement.getBoundingClientRect().height;
-        this.myChart = "";
-        this.init();
+
+        // Update simulation center
+        this.simulation.force(
+          "center",
+          d3.forceCenter(this.listElementWidth / 2, this.listElementHeight / 2)
+        );
+
+        // Redraw nodes
+        node.style("left", (d) => `${d.x}px`).style("top", (d) => `${d.y}px`);
       });
     }
   }
@@ -62,9 +67,9 @@ class WordCloud {
     if (window.innerWidth < 850 && window.innerWidth > 450) {
       this.strength = -30;
     } else if (window.innerWidth < 450) {
-      this.strength = -8;
+      this.strength = -10;
     } else {
-      this.strength = -50;
+      this.strength = -40;
     }
     this.myChart = d3
       .select("[data-services-cloud]")
@@ -72,7 +77,7 @@ class WordCloud {
       .classed("services__word-container", true)
       .attr("style", `width: 100%; height: ${this.listElementHeight}px`);
     // I want the gravity to be centered in the middle of the screen
-    let simulation = d3
+    this.simulation = d3
       .forceSimulation(this.nodes)
       .force("charge", d3.forceManyBody().strength(this.strength))
       .force(
@@ -100,23 +105,46 @@ class WordCloud {
     let prevNode = null;
 
     node.on("click", (event, d) => {
-      // Changed to arrow function
-      console.log("Clicked node", d.name);
-      // If there was a previously selected node, revert its color
-      if (prevNode) {
-        d3.select(prevNode).select("text").attr("fill", this.palette.gray);
-      }
-      console.log(this);
-      // Change the color of the clicked node
-      d3.select(event.currentTarget)
-        .select("text")
-        .attr("fill", this.palette.blue);
+      // Reset all nodes to their original color
+      node.selectAll("p").style("color", (d) => {
+        if (d.value <= 40) {
+          return this.palette.gray;
+        } else {
+          return this.palette.blue;
+        }
+      });
 
-      // Update the previously selected node
-      prevNode = event.currentTarget;
+      // Reset all nodes to their original size
+      node.selectAll("p").style("font-size", (d, i) => {
+        if (window.innerWidth < 850 && window.innerWidth > 450) {
+          return `${d.value / 1.5}px`;
+        } else if (window.innerWidth < 450) {
+          return `${d.value / 2.5}px`;
+        } else {
+          return `${d.value}px`;
+        }
+      });
+
+      // Change the color of the clicked node to blue
+      d3.select(event.currentTarget)
+        .select("p")
+        .style("color", this.palette.blue);
+
+      // Enlarge the clicked node
+      d3.select(event.currentTarget)
+        .select("p")
+        .style("font-size", (d) => {
+          if (window.innerWidth < 850 && window.innerWidth > 450) {
+            return `${d.value / 1.2}px`;
+          } else if (window.innerWidth < 450) {
+            return `${d.value / 2}px`;
+          } else {
+            return `${d.value * 1.4}px`;
+          }
+        });
     });
 
-    /* node
+    node
       .append("circle")
       .attr("cx", function (d) {
         return d.x;
@@ -154,43 +182,16 @@ class WordCloud {
         } else {
           return "black";
         }
-      }); */
-
-    /*     function dragstarted(event, d) {
-      if (!event.active) simulation.alphaTarget(0.3).restart();
-      d.fx = d.x;
-      d.fy = d.y;
-    }
-
-    function dragged(event, d) {
-      d.fx = event.x;
-      d.fy = event.y;
-    }
-
-    function dragended(event, d) {
-      if (!event.active) simulation.alphaTarget(0);
-      d.fx = null;
-      d.fy = null;
-    } */
-
-    simulation.on("tick", function (e) {
-      node.attr("style", function (d, i) {
-        return `position:absolute; transform: translate(${d.x}px, ${d.y}px); transform-origin: center;`;
       });
 
+    this.simulation.on("tick", () => {
+      node.style("left", (d) => `${d.x}px`).style("top", (d) => `${d.y}px`);
+
       link
-        .attr("x1", function (d) {
-          return d.source.x;
-        })
-        .attr("y1", function (d) {
-          return d.source.y;
-        })
-        .attr("x2", function (d) {
-          return d.target.x;
-        })
-        .attr("y2", function (d) {
-          return d.target.y;
-        });
+        .attr("x1", (d) => d.source.x)
+        .attr("y1", (d) => d.source.y)
+        .attr("x2", (d) => d.target.x)
+        .attr("y2", (d) => d.target.y);
     });
 
     // Add text to the nodes
