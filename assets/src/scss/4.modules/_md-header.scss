@@ -216,6 +216,9 @@
       &--mobile {
         display: none;
       }
+      &--desktop {
+        display: flex;
+      }
     }
     &__nav-link {
       font-size: 1.43rem;

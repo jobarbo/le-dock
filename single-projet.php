@@ -106,7 +106,7 @@ $next_post_acf = get_field('hero', $next_post->ID);
 <section class="projet-navigation">
     <div class="projet-navigation__container">
         <div class="projet-navigation__prev">
-            <div class="projet-navigation__prev-image">
+            <div class="projet-navigation__image projet-navigation__image--prev">
                 <img src="<?= $prev_post_acf['image']['url'] ?>" alt="Image">
             </div>
             <div class="projet-navigation__overlay projet-navigation__overlay--prev">
@@ -122,7 +122,7 @@ $next_post_acf = get_field('hero', $next_post->ID);
             <?php endif; ?>
         </div>
         <div class="projet-navigation__next">
-            <div class="projet-navigation__next-image">
+            <div class="projet-navigation__image projet-navigation__image--next">
                 <img src="<?= $next_post_acf['image']['url'] ?>" alt="Image">
             </div>
             <div class="projet-navigation__overlay projet-navigation__overlay--next">

@@ -102,10 +102,10 @@
   }
   &__image-link {
     color: $white;
-    font-weight: 21px;
+    font-size: 21px;
     cursor: pointer;
     border: 1px solid $white;
-    padding: 0.85em 1em 0.5em 1em;
+    padding: 0.85em 1em 0.85em 1em;
     border-radius: 50px;
     transition: 0.25s;
     &:hover {

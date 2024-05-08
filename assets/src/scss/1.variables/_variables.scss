@@ -31,14 +31,14 @@ $yellow: #e29927;
 // Style mixins
 // ==========================================================================
 @include font-face(manrope, "@/fonts/manrope/Manrope-ExtraBold", 800, normal);
-@include font-face(anek, "@/fonts/anek/AnekGurmukhi-Thin", 100, normal);
-@include font-face(anek, "@/fonts/anek/AnekGurmukhi-ExtraLight", 200, normal);
-@include font-face(anek, "@/fonts/anek/AnekGurmukhi-Light", 300, normal);
-@include font-face(anek, "@/fonts/anek/AnekGurmukhi-Regular", 400, normal);
-@include font-face(anek, "@/fonts/anek/AnekGurmukhi-Medium", 500, normal);
-@include font-face(anek, "@/fonts/anek/AnekGurmukhi-SemiBold", 600, normal);
-@include font-face(anek, "@/fonts/anek/AnekGurmukhi-Bold", 700, normal);
-@include font-face(anek, "@/fonts/anek/AnekGurmukhi-ExtraBold", 800, normal);
+@include font-face(anek, "@/fonts/anek/AnekLatin-Thin", 100, normal);
+@include font-face(anek, "@/fonts/anek/AnekLatin-ExtraLight", 200, normal);
+@include font-face(anek, "@/fonts/anek/AnekLatin-Light", 300, normal);
+@include font-face(anek, "@/fonts/anek/AnekLatin-Regular", 400, normal);
+@include font-face(anek, "@/fonts/anek/AnekLatin-Medium", 500, normal);
+@include font-face(anek, "@/fonts/anek/AnekLatin-SemiBold", 600, normal);
+@include font-face(anek, "@/fonts/anek/AnekLatin-Bold", 700, normal);
+@include font-face(anek, "@/fonts/anek/AnekLatin-ExtraBold", 800, normal);
 @include font-face(axia, "@/fonts/axia/Axia-BoldItalic", 700, italic);
 @include font-face(axia, "@/fonts/axia/AxiaBlack-Regular", 800, normal);
 @include font-face(
