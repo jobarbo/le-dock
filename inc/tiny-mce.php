@@ -4,7 +4,16 @@
 \*------------------------------------*/
 
 function tiny_stylesheet() {
-    add_editor_style('assets/dist/css/main.css');
+    // Add custom stylesheet to the TinyMCE editor if needed.
+    $theme_dir = get_template_directory() . '/assets/dist/css';
+
+    // Check if the directory exists
+    if (file_exists($theme_dir) && is_dir($theme_dir)) {
+        var_dump($theme_dir);
+        $files = array_diff(scandir($theme_dir), array('..', '.'));
+        $latest_file = end($files);
+        add_editor_style(get_template_directory_uri() . '/assets/dist/css/' . $latest_file);
+    }
 }
 function enable_style_select($buttons) {
     array_unshift($buttons, 'styleselect');

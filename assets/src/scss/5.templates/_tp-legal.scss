@@ -1,0 +1,12 @@
+.legal {
+  margin-bottom: 5em;
+  &__title {
+    @include container(0.5em, $desktop-padding);
+    background-color: $blue;
+    color: $white;
+    margin-bottom: 1em;
+  }
+  &__container {
+    @include container;
+  }
+}

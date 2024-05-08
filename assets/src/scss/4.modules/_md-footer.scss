@@ -4,14 +4,16 @@
 .footer {
   background-color: $blue;
   position: relative;
+  z-index: 2;
   &__container {
-    @include container;
+    @include container(15em);
     display: flex;
     position: relative;
     flex-direction: column;
     grid-template-columns: 1fr 1fr;
     align-items: flex-start;
     z-index: 1;
+    padding-bottom: 20em !important;
   }
   &__top {
     display: flex;
