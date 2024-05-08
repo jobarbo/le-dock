@@ -218,11 +218,22 @@
       }
       &--desktop {
         display: flex;
+        width: 100%;
+        justify-content: space-between;
       }
+    }
+    &__nav-item {
+      margin-bottom: 0;
+      transform: translateY(0);
+      opacity: 1;
     }
     &__nav-link {
       font-size: 1.43rem;
       opacity: 1;
+      height: fit-content;
+      display: block;
+      font-weight: 400;
+      text-transform: none;
       transition: opacity 0.3s;
       &:hover {
         opacity: 0.7;

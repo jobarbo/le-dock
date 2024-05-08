@@ -150,7 +150,7 @@
   }
 
   &__logo-item {
-    height: 280px;
+    height: 220px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -422,6 +422,15 @@
     &__title {
       z-index: 4;
       position: relative;
+    }
+    &__logo-container {
+      margin: 1em 0;
+    }
+    &__logo-item {
+      height: 120px;
+    }
+    &__logo-item-container {
+      height: 40px;
     }
   }
 
