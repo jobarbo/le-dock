@@ -9,7 +9,6 @@ function tiny_stylesheet() {
 
     // Check if the directory exists
     if (file_exists($theme_dir) && is_dir($theme_dir)) {
-        var_dump($theme_dir);
         $files = array_diff(scandir($theme_dir), array('..', '.'));
         $latest_file = end($files);
         add_editor_style(get_template_directory_uri() . '/assets/dist/css/' . $latest_file);
