@@ -62,7 +62,7 @@ class WordCloud {
     if (window.innerWidth < 850 && window.innerWidth > 450) {
       this.strength = -30;
     } else if (window.innerWidth < 450) {
-      this.strength = -5;
+      this.strength = -8;
     } else {
       this.strength = -50;
     }
@@ -70,10 +70,7 @@ class WordCloud {
       .select("[data-services-cloud]")
       .append("div")
       .classed("services__word-container", true)
-      .attr(
-        "style",
-        `width: ${this.listElementWidth}px; height: ${this.listElementHeight}px`
-      );
+      .attr("style", `width: 100%; height: ${this.listElementHeight}px`);
     // I want the gravity to be centered in the middle of the screen
     let simulation = d3
       .forceSimulation(this.nodes)
@@ -82,6 +79,9 @@ class WordCloud {
         "center",
         d3.forceCenter(this.listElementWidth / 2.5, this.listElementHeight / 2)
       );
+
+    // make the simulation to take into account the limits of the container element
+
     let link = this.myChart
       .selectAll("line")
       .data(this.links)
@@ -214,7 +214,7 @@ class WordCloud {
         if (window.innerWidth < 850 && window.innerWidth > 450) {
           return `${d.value / 1.5}px`;
         } else if (window.innerWidth < 450) {
-          return `${d.value / 2}px`;
+          return `${d.value / 2.5}px`;
         } else {
           return `${d.value}px`;
         }

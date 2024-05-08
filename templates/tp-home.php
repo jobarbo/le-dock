@@ -156,7 +156,9 @@ get_header(); ?>
                 </li>
             <?php endforeach; ?>
         </ul>
-        <div data-services-cloud class="services__cloud"></div>
+        <div class="services__cloud-container">
+            <div data-services-cloud class="services__cloud"></div>
+        </div>
     </div>
 
 </section>
