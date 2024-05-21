@@ -2,7 +2,7 @@
 // MIXIN - Button
 // ==========================================================================
 
-@mixin paragraph($color: $black) {
+@mixin paragraph($color: $blue) {
   font: 400 rem(16) $font-family-default;
   margin-bottom: 1em;
   letter-spacing: 0.02em;
@@ -21,12 +21,12 @@
     display: flex;
     align-items: center;
     font: 400 rem(14) $font-family-default;
-    color: $black;
+    color: $blue;
     padding: 0.2em 0;
     &:before {
       content: "";
       display: block;
-      background-color: $black;
+      background-color: $blue;
       border-radius: 50%;
       min-width: rem(5);
       height: rem(5);

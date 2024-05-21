@@ -24,7 +24,7 @@ class ProjectSlider {
       arrows: false,
       pagination: false,
       type: "loop",
-      gap: "-4rem",
+      gap: "-6rem",
 
       breakpoints: {
         768: {

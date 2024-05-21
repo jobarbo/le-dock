@@ -7,7 +7,7 @@
 
 @mixin title-1 {
   font: 700 rem(40) $font-family-title;
-  color: $black;
+  color: $blue;
   font-weight: 800;
 
   @include min-width($mobile-threshold) {
@@ -20,7 +20,7 @@
 
 @mixin title-2 {
   font: 600 rem(35) $font-family-title;
-  color: $black;
+  color: $blue;
   font-weight: 800;
   @include min-width($mobile-threshold) {
     font-size: rem(45);
@@ -32,7 +32,7 @@
 
 @mixin title-3 {
   font: 600 rem(30) $font-family-title;
-  color: $black;
+  color: $blue;
   font-weight: 800;
   @include min-width($mobile-threshold) {
     font-size: rem(40);
