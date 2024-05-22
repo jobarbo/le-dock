@@ -13,15 +13,17 @@ get_header(); ?>
     <div data-hero-container class="hero__container">
         <div data-hero-text class="hero__title-container">
             <h1 class="hero__title"><?= $hero['title'] ?></h1>
-            <div class="splide">
-                <div class="splide__track">
-                    <ul data-word-slider class="hero__word-slider splide__list">
-                        <?php foreach ($hero['word_list'] as $word) : ?>
-                            <li data-word-slide class="hero__word splide__slide">
-                                <?= $word['word'] ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
+            <div class="swiper mySwiper">
+                <ul data-word-slider class="hero__word-slider swiper-wrapper">
+                    <?php foreach ($hero['word_list'] as $word) : ?>
+                        <li data-word-slide class="hero__word swiper-slide">
+                            <?= $word['word'] ?></li>
+                    <?php endforeach; ?>
+                    <?php foreach ($hero['word_list'] as $word) : ?>
+                        <li data-word-slide class="hero__word swiper-slide">
+                            <?= $word['word'] ?></li>
+                    <?php endforeach; ?>
+                </ul>
             </div>
 
         </div>

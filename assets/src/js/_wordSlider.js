@@ -1,47 +1,66 @@
 import Splide from "@splidejs/splide";
+import Swiper from "swiper";
 
+import { Autoplay } from "swiper/modules";
+// Configure Swiper to use modules
 class WordSlider {
   constructor() {
-    this.slide = document.querySelector("[data-word-slide]");
-    this.splide = "";
+    this.slides = document.querySelectorAll("[data-word-slide]");
+    this.activeSlide = document.querySelector(".swiper-slide-active");
+    this.nextSlides = [];
+    this.swiper = null;
 
-    if (this.slide) {
-      // get the font size of the slide, remove the px and store it in a variable as a number
-      this.fontSize = parseInt(
-        window.getComputedStyle(this.slide).getPropertyValue("font-size"),
-        10
-      );
+    if (this.slides.length > 0) {
+      this.initSlider();
       this.manageEvents();
     }
-    // Managing events
   }
 
   manageEvents() {
-    // Managing events
-    this.initSlider();
+    this.swiper.on("transitionEnd", () => {
+      this.updateActiveSlide();
+      this.updateNextSlides();
+    });
+  }
 
-    window.addEventListener("resize", () => {
-      this.fontSize = parseInt(
-        window.getComputedStyle(this.slide).getPropertyValue("font-size"),
-        10
-      );
-      this.splide.destroy();
-      this.initSlider();
+  updateActiveSlide() {
+    this.activeSlide = document.querySelector(".swiper-slide-active");
+  }
+
+  updateNextSlides() {
+    if (!this.activeSlide) return;
+
+    this.nextSlides = [
+      this.activeSlide.nextElementSibling,
+      this.activeSlide.nextElementSibling?.nextElementSibling,
+    ];
+
+    this.slides.forEach((slide) => {
+      slide.classList.remove("next", "next--1", "next--2");
+    });
+
+    this.nextSlides.forEach((slide, index) => {
+      if (slide) {
+        slide.classList.add(`next`, `next--${index + 1}`);
+      }
     });
   }
 
   initSlider() {
-    this.splide = new Splide(".splide", {
-      direction: "ttb",
-      height: `${this.fontSize * 1.1}px`,
-      arrows: false,
-      pagination: false,
-      autoplay: false,
-      type: "false",
-      start: 0,
+    this.swiper = new Swiper(".swiper", {
+      direction: "vertical",
+      slidesPerView: 2,
+      loop: true,
+      loopAdditionalSlides: 1,
+      modules: [Autoplay],
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
     });
 
-    this.splide.mount();
+    this.updateActiveSlide();
+    this.updateNextSlides();
   }
 }
 
