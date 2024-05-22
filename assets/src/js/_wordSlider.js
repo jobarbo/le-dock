@@ -54,7 +54,7 @@ class WordSlider {
       loopAdditionalSlides: 1,
       modules: [Autoplay],
       autoplay: {
-        delay: 3500,
+        delay: 5000,
         disableOnInteraction: false,
       },
     });

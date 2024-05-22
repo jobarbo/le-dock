@@ -7,6 +7,7 @@ import WordCloud from "./_wordCloud";
 import TalentSlider from "./_talentSlider";
 import Gallery from "./_gallery";
 import Utils from "./helpers/_utils";
+import Scroll from "./_scroll";
 
 const App = {
   /**
@@ -24,6 +25,7 @@ const App = {
       const talentSlider = new TalentSlider();
       const wordCloud = new WordCloud();
       const gallery = new Gallery();
+      const scroll = new Scroll();
     }
     initGeneral();
   },

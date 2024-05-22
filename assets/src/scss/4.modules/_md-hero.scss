@@ -82,6 +82,8 @@
     color: $white;
     line-height: 1em;
     font-size: rem(28);
+    opacity: 0;
+    transform: translateY(50px);
   }
   &__word {
     font-size: rem(28);
@@ -147,9 +149,13 @@
       transform-origin: left;
       transform: translateX(-0.1em) scaleX(0);
       opacity: 0;
-      transition: 0.45s ease-in-out;
+      transition: 0.45s ease-in-out 0.35s;
       z-index: -1;
     }
+  }
+  &__word-slider {
+    opacity: 0;
+    transform: translateY(50px);
   }
   &__controls {
     display: flex;
@@ -230,9 +236,15 @@
     }
     &__button-container {
       align-self: center;
+      overflow: hidden;
     }
     &__button {
       font-size: 23px;
+      transition: 0.25s ease-in-out;
+      &:hover {
+        background-color: $white;
+        color: $blue;
+      }
     }
 
     &__wave {
