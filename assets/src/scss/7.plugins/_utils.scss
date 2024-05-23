@@ -9,3 +9,12 @@
 .swiper {
   height: 8em;
 }
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -1600px;
+  }
+}
