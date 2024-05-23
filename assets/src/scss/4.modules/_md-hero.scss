@@ -204,7 +204,7 @@
       position: relative;
     }
     &--hidden {
-      visibility: hidden;
+      opacity: 0;
       pointer-events: none;
     }
   }
@@ -237,6 +237,8 @@
     &__button-container {
       align-self: center;
       overflow: hidden;
+      opacity: 0;
+      transform: translateY(50px);
     }
     &__button {
       font-size: 23px;

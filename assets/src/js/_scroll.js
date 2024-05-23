@@ -10,11 +10,11 @@ export default class Scroll {
   }
 
   scroll() {
-    inView(".hero", (info) => {
+    inView("[data-hero]", (info) => {
       console.log(info);
       if (info.isIntersecting) {
         animate(
-          ".hero__title",
+          "[data-hero-title]",
           {
             opacity: 1,
             transform: "translateY(0)",
@@ -22,12 +22,20 @@ export default class Scroll {
           { delay: 0.4, duration: 0.6, easing: glide() }
         );
         animate(
-          ".hero__word-slider",
+          "[data-word-slider]",
           {
             opacity: 1,
             transform: "translateY(0)",
           },
           { delay: 0.6, duration: 0.6, easing: glide() }
+        );
+        animate(
+          "[data-hero-button]",
+          {
+            opacity: 1,
+            transform: "translateY(0)",
+          },
+          { delay: 0.8, duration: 0.6, easing: glide() }
         );
       }
     });

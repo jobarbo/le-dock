@@ -6,13 +6,13 @@ Template Name: Accueil
 get_header(); ?>
 
 <?php $hero = get_field('hero'); ?>
-<section class="hero">
+<section data-hero class="hero">
     <div class="hero__video">
         <video data-hero-video autoplay muted loop src="<?= $hero['video']['url'] ?>"></video>
     </div>
     <div data-hero-container class="hero__container">
         <div data-hero-text class="hero__title-container">
-            <h1 class="hero__title"><?= $hero['title'] ?></h1>
+            <h1 data-hero-title class="hero__title"><?= $hero['title'] ?></h1>
             <div class="swiper mySwiper">
                 <ul data-word-slider class="hero__word-slider swiper-wrapper">
                     <?php foreach ($hero['word_list'] as $word) : ?>
@@ -28,7 +28,7 @@ get_header(); ?>
 
         </div>
         <div class="hero__controls">
-            <div class="hero__button-container">
+            <div data-hero-button class="hero__button-container">
                 <button data-hero-play class="hero__button hero__button--play"><?= $hero['play_label'] ?></button>
                 <button data-hero-close class="hero__button hero__button--back hero__button--hidden"><?= $hero['back_label'] ?></button>
 
