@@ -70,14 +70,14 @@
     z-index: 1;
     left: 0;
     width: 100%;
-    animation: wave 20s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+    animation: wave 10s linear infinite;
     &:nth-of-type(2) {
       left: 100%;
-      animation: wave 20s cubic-bezier(0.36, 0.45, 0.63, 0.53) 0s infinite;
+      animation: wave 10s linear 0s infinite;
     }
     &:nth-of-type(3) {
       left: 200%;
-      animation: wave 20s cubic-bezier(0.36, 0.45, 0.63, 0.53) 0s infinite;
+      animation: wave 10s linear 0s infinite;
     }
   }
   &__title-container {
@@ -232,9 +232,6 @@
 @include desktop-only {
   .hero {
     margin-top: -$desktop-header-height;
-    &__video {
-      padding-bottom: 56.25%; /* 16:9 */
-    }
     &__container {
       @include container($desktop-header-height);
       align-items: flex-start;
@@ -266,7 +263,7 @@
     }
 
     &__wave {
-      bottom: -100px;
+      bottom: -150px;
     }
     &__word {
       font-size: rem(64);
@@ -295,7 +292,7 @@
       width: 100%;
       z-index: 0;
       pointer-events: none;
-      padding-bottom: 56.25%; /* 16:9 */
+      padding-bottom: 50.25%; /* 16:9 */
       height: 0 !important;
       transform: translateX(0%);
       video {
