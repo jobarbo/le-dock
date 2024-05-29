@@ -188,19 +188,23 @@ get_header(); ?>
             <h2 class="talents__title"><?= $talents['title'] ?></h2>
             <div class="talents__track splide__track">
                 <div class="talents__list splide__list">
-                    <?php foreach ($talents['list'] as $talent) : ?>
-                        <div data-talents-slide class="talents__item splide__slide">
-                            <div class="talents__image">
+                    <?php
+                    $i = 1;
+                    foreach ($talents['list'] as $talent) : ?>
+                        <div data-talents-slide class="talents__item talents__item--<?= $i ?> splide__slide">
+                            <div class="talents__image talents__image--<?= $i ?>">
                                 <img src="<?= $talent['pfp']['url'] ?>" alt="Image">
                             </div>
-                            <div class="talents__content">
-                                <p class="talents__position"><?= $talent['position'] ?></p>
-                                <h3 class="talents__name"><?= $talent['name'] ?></h3>
-                                <p class="talents__text"><?= $talent['bio'] ?></p>
-                                <p class="talents__quote"> <?= $talent['quote'] ?> </p>
+                            <div class="talents__content talents__content--<?= $i ?>">
+                                <p class="talents__position talents__position--<?= $i ?>"><?= $talent['position'] ?></p>
+                                <h3 class="talents__name talents__name--<?= $i ?>"><?= $talent['name'] ?></h3>
+                                <p class="talents__text talents__text--<?= $i ?>"><?= $talent['bio'] ?></p>
+                                <p class="talents__quote talents__quote--<?= $i ?>"> <?= $talent['quote'] ?> </p>
                             </div>
                         </div>
-                    <?php endforeach; ?>
+                    <?php
+                        $i++;
+                    endforeach; ?>
                 </div>
             </div>
         </div>
