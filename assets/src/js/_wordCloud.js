@@ -20,24 +20,24 @@ class WordCloud {
       this.simulation;
       this.myChart = "";
       this.nodes = [
-        { name: "PRODUCTION VIDÉO", value: 29 },
-        { name: "TOURNAGE", value: 25 },
-        { name: "MUSIQUE", value: 22 },
-        { name: "2D", value: 35 },
-        { name: "ENTREVUE", value: 26 },
-        { name: "MONTAGE", value: 21 },
-        { name: "DESIGN", value: 24 },
-        { name: "PUBLICITÉ", value: 18 },
-        { name: "SOUND DESIGN", value: 29 },
-        { name: "RECHERCHE", value: 24 },
-        { name: "GESTION", value: 33 },
-        { name: "PRODUCTION", value: 18 },
-        { name: "3D", value: 27 },
-        { name: "VFX", value: 35 },
-        { name: "CONCEPTION", value: 22 },
-        { name: "MOTION DESIGN", value: 19 },
-        { name: "CONTENUE DE MARQUE", value: 26 },
-        { name: "FILM D'ENTREPRISE", value: 22 },
+        { name: "PRODUCTION VIDÉO", value: 50 },
+        { name: "TOURNAGE", value: 35 },
+        { name: "MUSIQUE", value: 32 },
+        { name: "2D", value: 45 },
+        { name: "ENTREVUE", value: 36 },
+        { name: "MONTAGE", value: 31 },
+        { name: "DESIGN", value: 34 },
+        { name: "PUBLICITÉ", value: 28 },
+        { name: "SOUND DESIGN", value: 39 },
+        { name: "RECHERCHE", value: 34 },
+        { name: "GESTION", value: 43 },
+        { name: "PRODUCTION", value: 28 },
+        { name: "3D", value: 37 },
+        { name: "VFX", value: 45 },
+        { name: "CONCEPTION", value: 32 },
+        { name: "MOTION DESIGN", value: 29 },
+        { name: "CONTENUE DE MARQUE", value: 36 },
+        { name: "FILM D'ENTREPRISE", value: 32 },
       ];
 
       this.init();
@@ -69,7 +69,7 @@ class WordCloud {
     } else if (window.innerWidth < 450) {
       this.strength = -10;
     } else {
-      this.strength = -40;
+      this.strength = (window.innerWidth / 30) * -1;
     }
     this.myChart = d3
       .select("[data-services-cloud]")
@@ -87,15 +87,8 @@ class WordCloud {
 
     // make the simulation to take into account the limits of the container element
 
-    let link = this.myChart
-      .selectAll("line")
-      .data(this.links)
-      .append("line")
-      .attr("stroke", this.palette.gray)
-      .attr("stroke-width", 1);
-
     let node = this.myChart
-      .selectAll("circle")
+      .selectAll("div")
       .data(this.nodes)
       .enter()
       .append("div");
@@ -107,7 +100,7 @@ class WordCloud {
     node.on("click", (event, d) => {
       // Reset all nodes to their original color
       node.selectAll("p").style("color", (d) => {
-        if (d.value <= 40) {
+        if (d.value <= 50) {
           return this.palette.gray;
         } else {
           return this.palette.blue;
@@ -144,53 +137,8 @@ class WordCloud {
         });
     });
 
-    node
-      .append("circle")
-      .attr("cx", function (d) {
-        return d.x;
-      })
-      .attr("cy", function (d) {
-        return d.y;
-      })
-      .attr("r", (d, i) => {
-        // Changed to arrow function
-        if (i > 0) {
-          return this.cw + d.value;
-        } else {
-          return this.cw + 35;
-        }
-      })
-      .attr("fill", (d, i) => {
-        // Changed to arrow function
-        if (i > 0) {
-          return this.colors(i);
-        } else {
-          return "#fff";
-        }
-      })
-      .attr("strokewidth", function (d, i) {
-        if (i > 0) {
-          return "0";
-        } else {
-          return "2";
-        }
-      })
-      .attr("stroke", function (d, i) {
-        if (i > 0) {
-          return "";
-        } else {
-          return "black";
-        }
-      });
-
     this.simulation.on("tick", () => {
       node.style("left", (d) => `${d.x}px`).style("top", (d) => `${d.y}px`);
-
-      link
-        .attr("x1", (d) => d.source.x)
-        .attr("y1", (d) => d.source.y)
-        .attr("x2", (d) => d.target.x)
-        .attr("y2", (d) => d.target.y);
     });
 
     // Add text to the nodes
@@ -202,9 +150,9 @@ class WordCloud {
       .style("font-family", "anek")
       .style("font-weight", "800")
       .style("color", (d, i) => {
-        if (d.value <= 40) {
+        if (d.value <= 50) {
           return `${this.palette.gray}`;
-        } else if (d.value > 40) {
+        } else if (d.value > 50) {
           return `${this.palette.blue}`;
         } else {
           return `${this.palette.gray}`;
