@@ -63,20 +63,20 @@ class WordSlider {
       loopAdditionalSlides: 2,
       modules: [Autoplay],
       height: 28,
-      spaceBetween: 14,
+      spaceBetween: 12,
       updateOnWindowResize: true,
       autoplay: {
         delay: 5000,
         disableOnInteraction: false,
       },
       breakpoints: {
-        420: {
+        821: {
           height: 44,
-          spaceBetween: 22,
+          spaceBetween: 18,
         },
         1280: {
           height: 64,
-          spaceBetween: 32,
+          spaceBetween: 26,
         },
       },
     });

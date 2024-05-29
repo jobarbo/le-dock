@@ -21,7 +21,7 @@
     @include container($mobile-header-height);
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 2fr 1fr;
     width: 100%;
     height: 100%;
     padding-bottom: 0 !important;
@@ -81,9 +81,11 @@
   }
   &__title-container {
     align-self: flex-start;
-    align-items: baseline;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 0.4em;
     opacity: 1;
     transition: opacity 0.25s ease-in-out;
@@ -99,6 +101,7 @@
     font-size: rem(28);
     opacity: 0;
     transform: translateY(50px);
+    text-align: center;
   }
   &__word {
     font-size: rem(28);
@@ -107,7 +110,6 @@
     font-weight: 800;
     text-transform: uppercase;
     position: relative;
-    padding-left: 20px;
     opacity: 0;
     transform: translateY(50px);
     transition: all 0.15s ease-in-out;
@@ -142,7 +144,7 @@
         background-position: 50% 0%;
         opacity: 1;
         z-index: -1;
-        transform: translateX(0em) scaleY(1.15) scaleX(1.15);
+        transform: translateX(0em) scaleY(1.2) scaleX(1.2);
       }
       &.splide__slide--clone {
         opacity: 0;
@@ -162,11 +164,15 @@
       background-repeat: no-repeat;
       background-position: 50% 55%;
       transform-origin: left;
-      transform: translateX(0em) scaleY(1.15) scaleX(0);
+      transform: translateX(0em) scaleY(1.2) scaleX(0);
       opacity: 0;
       transition: 0.45s ease-in-out 0.35s;
       z-index: -1;
     }
+  }
+  .swiper {
+    margin: 1em auto;
+    pointer-events: none;
   }
   &__word-slider {
     opacity: 0;
@@ -174,7 +180,7 @@
   }
   &__controls {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     position: relative;
     width: 100%;
     justify-content: center;
@@ -239,9 +245,10 @@
       color: $white;
       line-height: 1em;
       font-size: rem(64);
+      text-align: left;
     }
     &__title-container {
-      @include container($desktop-header-height);
+      // @include container($desktop-header-height);
       align-self: center;
       justify-content: center;
       display: flex;
@@ -264,13 +271,19 @@
     }
 
     &__wave {
-      bottom: -50px;
+      bottom: 0px;
+      height: 10vh;
+      overflow: hidden;
+    }
+    &__wave-svg {
+      top: 0;
     }
     &__word {
       font-size: rem(64);
       font-family: $font-family-title;
       text-transform: uppercase;
       position: relative;
+      padding-left: 1em;
       /* add image to after pseudo element */
       &::after {
         content: "";
@@ -293,7 +306,7 @@
       width: 100%;
       z-index: 0;
       pointer-events: none;
-      padding-bottom: 50.25%; /* 16:9 */
+      padding-bottom: 100vh; /* 16:9 */
       height: 0 !important;
       transform: translateX(0%);
       video {
@@ -303,11 +316,47 @@
         height: 100%;
       }
     }
+    .swiper {
+      margin: 0;
+    }
+  }
+}
+
+// between 768px and 1024px
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hero {
+    &__title {
+      color: $white;
+      line-height: 1em;
+      font-size: 28px;
+      text-align: left;
+    }
+    &__word {
+      font-size: 28px;
+    }
+    &__container {
+      grid-template-rows: 2fr 1fr;
+    }
+    &__title-container {
+      flex-direction: row;
+      align-self: center;
+      align-items: baseline;
+      display: flex;
+      flex-direction: row;
+      height: fit-content;
+      gap: 0.4em;
+    }
+    &__controls {
+      align-items: flex-start;
+    }
+    .swiper {
+      margin: 0;
+    }
   }
 }
 
 // between 1024px and 1280px
-@media (min-width: 1024px) and (max-width: 1280px) {
+@media (min-width: 1024) and (max-width: 1280px) {
   .hero {
     &__title {
       color: $white;
