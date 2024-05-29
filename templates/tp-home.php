@@ -182,10 +182,10 @@ get_header(); ?>
 
 <?php $talents = get_field('talents'); ?>
 
-<section id="talents" class="talents splide">
+<section data-talents id="talents" class="talents splide">
     <div class="talents__wrapper">
         <div class="talents__container">
-            <h2 class="talents__title"><?= $talents['title'] ?></h2>
+            <h2 data-talents-title class="talents__title"><?= $talents['title'] ?><span data-talents-title-highlight class="talents__title-highlight"></span></h2>
             <div class="talents__track splide__track">
                 <div class="talents__list splide__list">
                     <?php

@@ -31,7 +31,7 @@ class TalentSlider {
       trimSpace: false,
       autoWidth: true,
       autoScroll: {
-        speed: 1,
+        speed: 0.5,
       },
       breakpoints: {
         768: {

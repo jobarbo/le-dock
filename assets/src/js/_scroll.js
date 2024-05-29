@@ -39,5 +39,26 @@ export default class Scroll {
         );
       }
     });
+
+    inView("[data-talents]", (info) => {
+      if (info.isIntersecting) {
+        animate(
+          "[data-talents-title]",
+          {
+            opacity: 1,
+            transform: "translateY(0)",
+          },
+          { delay: 0.4, duration: 0.6, easing: glide() }
+        );
+        animate(
+          "[data-talents-title-highlight]",
+          {
+            opacity: 1,
+            transform: "scaleX(1.25) scaleY(1.25) translateX(-15px)",
+          },
+          { delay: 0.6, duration: 0.6, easing: glide() }
+        );
+      }
+    });
   }
 }
