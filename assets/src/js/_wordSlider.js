@@ -28,9 +28,7 @@ class WordSlider {
     // Resize event
     window.addEventListener("resize", () => {
       this.fontSize = parseInt(window.getComputedStyle(this.title).fontSize);
-      this.swiper.height = this.fontSize;
       this.swiper.update();
-      this.initSlider();
     });
   }
 
@@ -64,10 +62,22 @@ class WordSlider {
       loop: true,
       loopAdditionalSlides: 2,
       modules: [Autoplay],
-      height: this.fontSize * 1.5,
+      height: 28,
+      spaceBetween: 14,
+      updateOnWindowResize: true,
       autoplay: {
         delay: 5000,
         disableOnInteraction: false,
+      },
+      breakpoints: {
+        420: {
+          height: 44,
+          spaceBetween: 22,
+        },
+        1280: {
+          height: 64,
+          spaceBetween: 32,
+        },
       },
     });
 

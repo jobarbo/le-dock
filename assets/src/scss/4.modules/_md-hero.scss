@@ -22,7 +22,6 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-
     width: 100%;
     height: 100%;
     padding-bottom: 0 !important;
@@ -113,7 +112,7 @@
     transform: translateY(50px);
     transition: all 0.15s ease-in-out;
     width: fit-content;
-
+    line-height: 1em;
     &.next {
       &--1 {
         opacity: 0.2;
@@ -133,7 +132,7 @@
         content: "";
         display: block;
         position: absolute;
-        top: 15px;
+        top: 5px;
         left: -20px;
         width: 100%;
         height: 100%;
@@ -143,7 +142,7 @@
         background-position: 50% 0%;
         opacity: 1;
         z-index: -1;
-        transform: translateX(0em) scaleX(1.2);
+        transform: translateX(0em) scaleY(1.15) scaleX(1.15);
       }
       &.splide__slide--clone {
         opacity: 0;
@@ -163,7 +162,7 @@
       background-repeat: no-repeat;
       background-position: 50% 55%;
       transform-origin: left;
-      transform: translateX(-0.1em) scaleX(0);
+      transform: translateX(0em) scaleY(1.15) scaleX(0);
       opacity: 0;
       transition: 0.45s ease-in-out 0.35s;
       z-index: -1;
@@ -233,8 +232,8 @@
   .hero {
     margin-top: -$desktop-header-height;
     &__container {
-      @include container($desktop-header-height);
       align-items: flex-start;
+      max-width: none !important;
     }
     &__title {
       color: $white;
@@ -242,6 +241,7 @@
       font-size: rem(64);
     }
     &__title-container {
+      @include container($desktop-header-height);
       align-self: center;
       justify-content: center;
       display: flex;
