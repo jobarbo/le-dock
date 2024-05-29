@@ -92,55 +92,58 @@ get_header(); ?>
 
 <?php $projects = get_field('project'); ?>
 <section id="projects" class="projects">
-    <div class="projects__container">
-        <h2 class="projects__title"><?= $projects['title'] ?></h2>
-        <div class="projects__slider splide">
-            <div class="projects__slider-track splide__track">
-                <div class="projects__list splide__list">
-                    <!-- load content from custom post type here -->
+    <div class="projects__wrapper">
+        <div class="projects__container">
+            <h2 class="projects__title"><?= $projects['title'] ?></h2>
+            <div class="projects__slider splide">
+                <div class="projects__slider-track splide__track">
+                    <div class="projects__list splide__list">
+                        <!-- load content from custom post type here -->
 
-                    <?php
-                    $args = array(
-                        'post_type' => 'projet',
-                        'posts_per_page' => 10,
-                        'orderby' => 'date',
-                        'order' => 'ASC'
-                    );
+                        <?php
+                        $args = array(
+                            'post_type' => 'projet',
+                            'posts_per_page' => 10,
+                            'orderby' => 'date',
+                            'order' => 'ASC'
+                        );
 
-                    $query = new WP_Query($args);
+                        $query = new WP_Query($args);
 
-                    if ($query->have_posts()) {
-                        while ($query->have_posts()) {
-                            $query->the_post();
-                            $permalink = get_permalink($query->ID);
-                            $name = get_the_title($query->ID);
-                            $hero = get_field('hero', $query->ID);
-                            $content = get_field('content', $query->ID);
-                            $gallery = get_field('gallery', $query->ID); ?>
-                            <div data-project-slide class="projects__item splide__slide">
-                                <div class="projects__image">
-                                    <img src="<?= $hero['image']['url']  ?>" alt="Image">
-                                    <div class="projects__image-overlay">
-                                        <a href="<?= $permalink ?>" class="projects__image-link button">Voir le projet</a>
+                        if ($query->have_posts()) {
+                            while ($query->have_posts()) {
+                                $query->the_post();
+                                $permalink = get_permalink($query->ID);
+                                $name = get_the_title($query->ID);
+                                $hero = get_field('hero', $query->ID);
+                                $content = get_field('content', $query->ID);
+                                $gallery = get_field('gallery', $query->ID); ?>
+                                <div data-project-slide class="projects__item splide__slide">
+                                    <div class="projects__image">
+                                        <img src="<?= $hero['image']['url']  ?>" alt="Image">
+                                        <div class="projects__image-overlay">
+                                            <a href="<?= $permalink ?>" class="projects__image-link button">Voir le projet</a>
+                                        </div>
+                                    </div>
+                                    <div class="projects__content">
+                                        <p class="projects__year"><?= $content['year'] ?></p>
+                                        <h3 class="projects__name"><?= $content['title'] ?></h3>
+                                        <p class="projects__description"><?= $content['text'] ?></p>
                                     </div>
                                 </div>
-                                <div class="projects__content">
-                                    <p class="projects__year"><?= $content['year'] ?></p>
-                                    <h3 class="projects__name"><?= $content['title'] ?></h3>
-                                    <p class="projects__description"><?= $content['text'] ?></p>
-                                </div>
-                            </div>
-                    <?php
+                        <?php
+                            }
                         }
-                    }
-                    wp_reset_postdata(); ?>
+                        wp_reset_postdata(); ?>
 
 
+                    </div>
                 </div>
             </div>
-        </div>
 
+        </div>
     </div>
+
     <div class="projects__logo-container splide">
         <div class="splide__track">
             <ul class="projects__logo-list splide__list">
@@ -179,26 +182,30 @@ get_header(); ?>
 <?php $talents = get_field('talents'); ?>
 
 <section id="talents" class="talents splide">
-    <div class="talents__container">
-        <h2 class="talents__title"><?= $talents['title'] ?></h2>
-        <div class="talents__track splide__track">
-            <div class="talents__list splide__list">
-                <?php foreach ($talents['list'] as $talent) : ?>
-                    <div data-talents-slide class="talents__item splide__slide">
-                        <div class="talents__image">
-                            <img src="<?= $talent['pfp']['url'] ?>" alt="Image">
+    <div class="talents__wrapper">
+        <div class="talents__container">
+            <h2 class="talents__title"><?= $talents['title'] ?></h2>
+            <div class="talents__track splide__track">
+                <div class="talents__list splide__list">
+                    <?php foreach ($talents['list'] as $talent) : ?>
+                        <div data-talents-slide class="talents__item splide__slide">
+                            <div class="talents__image">
+                                <img src="<?= $talent['pfp']['url'] ?>" alt="Image">
+                            </div>
+                            <div class="talents__content">
+                                <p class="talents__position"><?= $talent['position'] ?></p>
+                                <h3 class="talents__name"><?= $talent['name'] ?></h3>
+                                <p class="talents__text"><?= $talent['bio'] ?></p>
+                                <p class="talents__quote"> <?= $talent['quote'] ?> </p>
+                            </div>
                         </div>
-                        <div class="talents__content">
-                            <p class="talents__position"><?= $talent['position'] ?></p>
-                            <h3 class="talents__name"><?= $talent['name'] ?></h3>
-                            <p class="talents__text"><?= $talent['bio'] ?></p>
-                            <p class="talents__quote"> <?= $talent['quote'] ?> </p>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
+
     </div>
+
     <div class="talents__wave-container">
         <svg id="footer__white-wave-svg" data-name="footer__white-wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2761 307.79">
             <defs>
