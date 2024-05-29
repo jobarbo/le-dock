@@ -154,7 +154,6 @@ class WordCloud {
       })
       .attr("r", (d, i) => {
         // Changed to arrow function
-        console.log(d.value);
         if (i > 0) {
           return this.cw + d.value;
         } else {

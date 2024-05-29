@@ -1,4 +1,5 @@
 import Splide from "@splidejs/splide";
+import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 
 class TalentSlider {
   constructor() {
@@ -29,6 +30,9 @@ class TalentSlider {
       focus: "center",
       trimSpace: false,
       autoWidth: true,
+      autoScroll: {
+        speed: 1,
+      },
       breakpoints: {
         768: {
           perPage: 1,
@@ -42,7 +46,7 @@ class TalentSlider {
       },
     });
 
-    this.splide.mount();
+    this.splide.mount({ AutoScroll });
   }
 }
 

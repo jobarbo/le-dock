@@ -25,7 +25,8 @@ class ProjectSlider {
       pagination: false,
       type: "loop",
       gap: "-6rem",
-
+      autoplay: true,
+      interval: 6000,
       breakpoints: {
         768: {
           perPage: 1,

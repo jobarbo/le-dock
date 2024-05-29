@@ -7,6 +7,9 @@ class WordSlider {
   constructor() {
     this.slides = document.querySelectorAll("[data-word-slide]");
     this.activeSlide = document.querySelector(".swiper-slide-active");
+    this.title = document.querySelector("[data-hero-title]");
+    this.fontSize = parseInt(window.getComputedStyle(this.title).fontSize);
+    console.log(this.fontSize);
     this.nextSlides = [];
     this.swiper = null;
 
@@ -20,6 +23,14 @@ class WordSlider {
     this.swiper.on("transitionEnd", () => {
       this.updateActiveSlide();
       this.updateNextSlides();
+    });
+
+    // Resize event
+    window.addEventListener("resize", () => {
+      this.fontSize = parseInt(window.getComputedStyle(this.title).fontSize);
+      this.swiper.height = this.fontSize;
+      this.swiper.update();
+      this.initSlider();
     });
   }
 
@@ -49,10 +60,11 @@ class WordSlider {
   initSlider() {
     this.swiper = new Swiper(".swiper", {
       direction: "vertical",
-      slidesPerView: 2,
+      slidesPerView: 1,
       loop: true,
-      loopAdditionalSlides: 1,
+      loopAdditionalSlides: 2,
       modules: [Autoplay],
+      height: this.fontSize * 1.5,
       autoplay: {
         delay: 5000,
         disableOnInteraction: false,

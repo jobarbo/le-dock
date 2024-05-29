@@ -31,7 +31,7 @@ class LogoSlider {
       type: "loop",
       autoWidth: true,
       autoScroll: {
-        speed: 1,
+        speed: 0.7,
       },
 
       breakpoints: {
