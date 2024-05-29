@@ -6,7 +6,7 @@
   position: relative;
   z-index: 2;
   &__container {
-    @include container(15em);
+    @include container(20em);
     display: flex;
     position: relative;
     flex-direction: column;

@@ -30,7 +30,9 @@ class TalentSlider {
       focus: "center",
       trimSpace: false,
       autoWidth: true,
-
+      autoScroll: {
+        speed: 1,
+      },
       breakpoints: {
         768: {
           perPage: 1,
@@ -39,12 +41,12 @@ class TalentSlider {
         450: {
           perPage: 1,
           gap: "1rem",
-          autoplay: false,
+          autoplay: true,
         },
       },
     });
 
-    this.splide.mount({});
+    this.splide.mount({ AutoScroll });
   }
 }
 

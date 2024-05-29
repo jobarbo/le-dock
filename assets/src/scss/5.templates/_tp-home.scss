@@ -228,6 +228,7 @@
 .talents {
   &__wrapper {
     position: relative;
+    padding-bottom: 250px;
     &::before {
       content: "";
       position: absolute;
@@ -387,9 +388,27 @@
   }
 
   &__wave-container {
-    z-index: 4;
-    position: relative;
-    margin-top: -1em;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+  }
+  &__wave-svg {
+    position: absolute;
+    bottom: -1px;
+    z-index: 1;
+    left: 0;
+    width: 100%;
+    animation: wave 20s linear reverse infinite;
+    &:nth-of-type(2) {
+      left: 100%;
+      animation: wave 20s linear 0s reverse infinite;
+    }
+    &:nth-of-type(3) {
+      left: 200%;
+      animation: wave 20s linear 0s reverse infinite;
+    }
   }
 }
 
