@@ -37,6 +37,7 @@
 
 .projet-info {
   margin-bottom: 8em;
+  margin-top: 3em;
   &__container {
     @include container;
     display: grid;
@@ -45,6 +46,7 @@
   }
   &__text {
     padding-right: 4em;
+    max-width: 750px;
   }
   &__services-title {
     font-size: 23px;
