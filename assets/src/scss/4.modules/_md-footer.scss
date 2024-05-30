@@ -5,6 +5,7 @@
   background-color: $blue;
   position: relative;
   z-index: 2;
+  overflow: hidden;
   &__container {
     @include container(20em);
     display: flex;
@@ -31,7 +32,7 @@
   &__image-container {
     z-index: 0;
     position: absolute;
-    bottom: 0;
+    bottom: -50px;
     left: 0;
     pointer-events: none;
   }

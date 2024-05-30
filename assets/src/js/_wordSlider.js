@@ -8,12 +8,13 @@ class WordSlider {
     this.slides = document.querySelectorAll("[data-word-slide]");
     this.activeSlide = document.querySelector(".swiper-slide-active");
     this.title = document.querySelector("[data-hero-title]");
-    this.fontSize = parseInt(window.getComputedStyle(this.title).fontSize);
-    console.log(this.fontSize);
+    this.fontSize = "";
     this.nextSlides = [];
     this.swiper = null;
 
     if (this.slides.length > 0) {
+      parseInt(window.getComputedStyle(this.title).fontSize);
+      console.log(this.fontSize);
       this.initSlider();
       this.manageEvents();
     }

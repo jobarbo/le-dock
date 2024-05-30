@@ -18,6 +18,10 @@
     }
   } */
 
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+  }
   &__container {
     @include container(1em);
     display: flex;
@@ -164,7 +168,7 @@
       height: 2px;
       background-color: $blue;
     }
-    .header__container {
+    .header__wrapper {
       background-color: $white;
     }
   }
