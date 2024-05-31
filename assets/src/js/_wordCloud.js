@@ -39,35 +39,65 @@ class WordCloud {
         { name: "CONTENUE DE MARQUE", value: 36 },
         { name: "FILM D'ENTREPRISE", value: 32 },
       ];
+      this.node = "";
 
       this.init();
-
-      // check resize
-      window.addEventListener("resize", () => {
-        // Update dimensions
-        this.listElementX = this.listElement.getBoundingClientRect().x;
-        this.listElementY = this.listElement.getBoundingClientRect().y;
-        this.listElementWidth = this.listElement.getBoundingClientRect().width;
-        this.listElementHeight =
-          this.listElement.getBoundingClientRect().height;
-
-        // Update simulation center
-        this.simulation.force(
-          "center",
-          d3.forceCenter(this.listElementWidth / 2, this.listElementHeight / 2)
-        );
-
-        // Redraw nodes
-        node.style("left", (d) => `${d.x}px`).style("top", (d) => `${d.y}px`);
-      });
+      this.manageEvent();
     }
+  }
+
+  manageEvent() {
+    // check resize
+    window.addEventListener("resize", () => {
+      if (window.innerWidth < 850 && window.innerWidth > 450) {
+        this.strength = (window.innerWidth / 30) * -1;
+      } else if (window.innerWidth < 450) {
+        this.strength = -(window.innerWidth / 50) * -1;
+      } else {
+        this.strength = (window.innerWidth / 30) * -1;
+      }
+      // Update dimensions
+      this.listElementX = this.listElement.getBoundingClientRect().x;
+
+      this.listElementY = this.listElement.getBoundingClientRect().y;
+      this.listElementWidth = this.listElement.getBoundingClientRect().width;
+      this.listElementHeight = this.listElement.getBoundingClientRect().height;
+      this.simulation = d3
+        .forceSimulation(this.nodes)
+        .force(
+          "center",
+          d3.forceCenter(
+            this.listElementWidth / 2.5,
+            this.listElementHeight / 2
+          )
+        );
+      this.node.selectAll("p").style("font-size", (d, i) => {
+        if (window.innerWidth < 850 && window.innerWidth > 450) {
+          return `${d.value / 1.5}px`;
+        } else if (window.innerWidth < 450) {
+          return `${d.value / 2.5}px`;
+        } else {
+          return `${d.value}px`;
+        }
+      });
+      // Redraw nodes
+
+      this.simulation.on("tick", () => {
+        this.node
+          .style(
+            "transform",
+            (d) => `translateX(${d.x}px) translateY(${d.y}px)`
+          )
+          .style("transform-origin", "left");
+      });
+    });
   }
 
   init() {
     if (window.innerWidth < 850 && window.innerWidth > 450) {
-      this.strength = -30;
+      this.strength = (window.innerWidth / 30) * -1;
     } else if (window.innerWidth < 450) {
-      this.strength = -10;
+      this.strength = -(window.innerWidth / 50) * -1;
     } else {
       this.strength = (window.innerWidth / 30) * -1;
     }
@@ -87,7 +117,7 @@ class WordCloud {
 
     // make the simulation to take into account the limits of the container element
 
-    let node = this.myChart
+    this.node = this.myChart
       .selectAll("div")
       .data(this.nodes)
       .enter()
@@ -97,9 +127,9 @@ class WordCloud {
 
     let prevNode = null;
 
-    node.on("click", (event, d) => {
+    this.node.on("click", (event, d) => {
       // Reset all nodes to their original color
-      node.selectAll("p").style("color", (d) => {
+      this.node.selectAll("p").style("color", (d) => {
         if (d.value <= 50) {
           return this.palette.gray;
         } else {
@@ -108,7 +138,7 @@ class WordCloud {
       });
 
       // Reset all nodes to their original size
-      node.selectAll("p").style("font-size", (d, i) => {
+      this.node.selectAll("p").style("font-size", (d, i) => {
         if (window.innerWidth < 850 && window.innerWidth > 450) {
           return `${d.value / 1.5}px`;
         } else if (window.innerWidth < 450) {
@@ -138,11 +168,13 @@ class WordCloud {
     });
 
     this.simulation.on("tick", () => {
-      node.style("left", (d) => `${d.x}px`).style("top", (d) => `${d.y}px`);
+      this.node
+        .style("transform", (d) => `translateX(${d.x}px) translateY(${d.y}px)`)
+        .style("transform-origin", "center");
     });
 
     // Add text to the nodes
-    node
+    this.node
       .append("p")
       .text(function (d) {
         return d.name;

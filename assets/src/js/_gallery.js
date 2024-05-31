@@ -3,9 +3,9 @@ import MiniMasonry from "minimasonry";
 class Gallery {
   constructor() {
     this.gallery = document.querySelector("[data-masonry]");
-    this.galleryWidth = this.gallery.offsetWidth;
 
     if (this.gallery) {
+      this.galleryWidth = this.gallery.offsetWidth;
       // if device is tablet or bigger
       if (window.innerWidth > 768) {
         this.masonry = new MiniMasonry({

@@ -69,14 +69,14 @@
     z-index: 1;
     left: 0;
     width: 100%;
-    animation: wave 10s linear infinite;
+    animation: wave 20s linear infinite;
     &:nth-of-type(2) {
       left: 100%;
-      animation: wave 10s linear 0s infinite;
+      animation: wave 20s linear 0s infinite;
     }
     &:nth-of-type(3) {
       left: 200%;
-      animation: wave 10s linear 0s infinite;
+      animation: wave 20s linear 0s infinite;
     }
   }
   &__title-container {

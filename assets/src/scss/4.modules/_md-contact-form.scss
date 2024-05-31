@@ -13,15 +13,16 @@
   }
   &__wave-container {
     position: absolute;
-    top: -10vh;
+    top: -15vh;
     left: 0;
     width: 100%;
-    height: 10vh;
+    height: 25vh;
+    overflow: hidden;
     z-index: 3;
   }
   &__wave-svg {
     position: absolute;
-    top: -1px;
+    top: 1px;
     z-index: 1;
     left: 0;
     width: 100%;
@@ -117,7 +118,7 @@
   }
 }
 
-.contact .gform_wrapper.gravity-theme .gfield_validation_message,
+.gfield_validation_message,
 .contact .gform_wrapper.gravity-theme .validation_message {
   background: transparent;
   border: none;
