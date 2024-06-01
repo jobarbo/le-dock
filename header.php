@@ -26,7 +26,7 @@
 		<header data-scroll-section data-header class="<?= $header_class  ?>">
 			<div class="header__wrapper">
 				<div class="header__container">
-					<a class="header__logo" href="<?php echo get_home_url(); ?>">
+					<a data-header-logo class="header__logo" href="<?php echo get_home_url(); ?>">
 						<?php if ($header_class === 'header') : ?>
 							<img src="<?= $header['logo']['url'] ?>" alt="Logo">
 						<?php else : ?>
@@ -36,7 +36,7 @@
 					<nav class="header__nav">
 						<ul class=" header__nav-list--desktop">
 							<?php foreach ($navigation['nav_list'] as $nav) : ?>
-								<li class="header__nav-item">
+								<li data-header-nav-item class="header__nav-item">
 									<a href="<?= $nav['nav_item']['url'] ?>" class="<?= $link_class ?>"><?= $nav['nav_item']['title'] ?></a>
 								</li>
 							<?php endforeach; ?>

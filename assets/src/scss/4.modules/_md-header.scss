@@ -207,6 +207,8 @@
     }
     &__logo {
       height: 100%;
+      transform: translateY(-50px);
+      opacity: 0;
     }
 
     &__nav {
@@ -230,7 +232,8 @@
     &__nav-item {
       margin-bottom: 0;
       transform: translateY(0);
-      opacity: 1;
+      transform: translateY(-50px);
+      opacity: 0;
     }
     &__nav-link {
       font-size: 1.43rem;

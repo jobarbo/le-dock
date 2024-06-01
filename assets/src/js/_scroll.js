@@ -1,4 +1,4 @@
-import { animate, inView, glide } from "motion";
+import { animate, inView, glide, stagger } from "motion";
 
 export default class Scroll {
   constructor() {
@@ -36,6 +36,26 @@ export default class Scroll {
             transform: "translateY(0)",
           },
           { delay: 0.8, duration: 0.6, easing: glide() }
+        );
+        animate(
+          "[data-header-logo]",
+          {
+            opacity: 1,
+            transform: "translateY(0)",
+          },
+          { delay: 1, duration: 0.6, easing: glide() }
+        );
+        animate(
+          "[data-header-nav-item]",
+          {
+            opacity: 1,
+            transform: "translateY(0)",
+          },
+          {
+            delay: stagger(0.1, { start: 1.2 }),
+            duration: 0.6,
+            easing: glide(),
+          }
         );
       }
     });
