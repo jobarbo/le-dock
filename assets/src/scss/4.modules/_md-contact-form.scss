@@ -137,6 +137,12 @@
 
 @include tablet-only {
   .contact {
+    &__container {
+      grid-template-columns: 1fr;
+      gap: 2em;
+      @include container(2em);
+      padding-top: 2em !important;
+    }
     &__wave-container {
       height: 50px;
       top: -49px;
