@@ -71,7 +71,7 @@ class WordSlider {
         disableOnInteraction: false,
       },
       breakpoints: {
-        821: {
+        1024: {
           height: 44,
           spaceBetween: 18,
         },

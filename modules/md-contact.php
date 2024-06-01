@@ -6,7 +6,7 @@
             <defs>
                 <style>
                     .waveblue {
-                        fill: #0D1B2F;
+                        fill: #0d1c30;
                         stroke-width: 0px;
                     }
                 </style>
@@ -17,7 +17,7 @@
             <defs>
                 <style>
                     .waveblue {
-                        fill: #0D1B2F;
+                        fill: #0d1c30;
                         stroke-width: 0px;
                     }
                 </style>

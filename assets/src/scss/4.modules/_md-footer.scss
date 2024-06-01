@@ -108,6 +108,10 @@
 
 @include tablet-only {
   .footer {
+    &__container {
+      @include container(2em);
+      padding-bottom: 6em !important;
+    }
     &__bottom {
       align-items: baseline;
       justify-content: space-between;

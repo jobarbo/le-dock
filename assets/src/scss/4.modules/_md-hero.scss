@@ -341,10 +341,11 @@
       flex-direction: row;
       align-self: center;
       align-items: baseline;
+      justify-content: center;
       display: flex;
       flex-direction: row;
       height: fit-content;
-      gap: 0.4em;
+      gap: 1em;
     }
     &__controls {
       align-items: flex-start;
