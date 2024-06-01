@@ -247,7 +247,7 @@
   }
   &__container {
     @include container;
-    padding-bottom: 20vh !important;
+    padding-bottom: 70px !important;
   }
 
   &__title {
@@ -392,15 +392,15 @@
 
   &__wave-container {
     position: absolute;
-    bottom: 10px;
+    bottom: -100px;
     left: 0;
     width: 100%;
-    height: 25vh;
+    height: 200px;
     overflow: hidden;
   }
   &__wave-svg {
     position: absolute;
-    top: -1px;
+    top: 1px;
     z-index: 1;
     left: 0;
     width: 100%;

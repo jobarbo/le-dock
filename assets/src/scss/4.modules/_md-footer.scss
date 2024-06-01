@@ -6,6 +6,7 @@
   position: relative;
   z-index: 2;
   overflow: hidden;
+  background: linear-gradient(181deg, #0d1c30, #060d15);
   &__container {
     @include container(20em);
     display: flex;
