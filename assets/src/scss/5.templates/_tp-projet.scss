@@ -266,6 +266,15 @@
     &__container {
       height: calc(100vh - $mobile-header-height);
     }
+    &__wave {
+      margin-top: -3em;
+      margin-bottom: 0em;
+      height: 50px;
+      bottom: -1em;
+    }
+    &__wave-svg {
+      top: 1px;
+    }
   }
   .projet-info {
     margin-bottom: 1em;
@@ -288,6 +297,7 @@
   }
 
   .projet-navigation {
+    margin-bottom: -5em;
     &__link-nav {
       font-size: 0.75rem;
     }

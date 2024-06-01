@@ -54,9 +54,10 @@ export default class Scroll {
           "[data-talents-title-highlight]",
           {
             opacity: 1,
-            transform: "scaleX(1.25) scaleY(1.25) translateX(-15px)",
+            transform:
+              "scaleX(1.25) scaleY(1.25) translateY(0) translateX(-15px)",
           },
-          { delay: 0.6, duration: 0.6, easing: glide() }
+          { delay: 1, duration: 0.6, easing: glide() }
         );
       }
     });

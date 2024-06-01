@@ -97,7 +97,7 @@ class WordCloud {
     if (window.innerWidth < 850 && window.innerWidth > 450) {
       this.strength = (window.innerWidth / 30) * -1;
     } else if (window.innerWidth < 450) {
-      this.strength = -(window.innerWidth / 50) * -1;
+      this.strength = (window.innerWidth / 50) * -1;
     } else {
       this.strength = (window.innerWidth / 30) * -1;
     }

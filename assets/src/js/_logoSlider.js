@@ -37,6 +37,9 @@ class LogoSlider {
       breakpoints: {
         768: {
           gap: "6rem",
+          autoScroll: {
+            speed: 0.4,
+          },
         },
       },
     });

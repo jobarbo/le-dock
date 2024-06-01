@@ -41,12 +41,11 @@ class TalentSlider {
         450: {
           perPage: 1,
           gap: "1rem",
-          autoplay: true,
         },
       },
     });
 
-    this.splide.mount({ AutoScroll });
+    this.splide.mount({});
   }
 }
 
