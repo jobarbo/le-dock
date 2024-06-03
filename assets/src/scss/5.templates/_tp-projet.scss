@@ -3,11 +3,14 @@
 // ==========================================================================
 .projet-hero {
   position: relative;
+  overflow: hidden;
   &__container {
     height: calc(100vh - $desktop-header-height);
   }
   &__image-container {
     height: 100%;
+    opacity: 0;
+    transform: translateY(20px);
   }
   &__wave {
     position: absolute;
@@ -44,15 +47,23 @@
     grid-template-columns: 4fr 3fr;
     gap: 1em;
   }
+  &__title {
+    opacity: 0;
+    transform: translateY(20px);
+  }
   &__text {
     padding-right: 4em;
     max-width: 750px;
+    opacity: 0;
+    transform: translateY(20px);
   }
   &__services-title {
     font-size: 23px;
     color: $yellow;
     font-weight: 600;
     margin-bottom: 1em;
+    opacity: 0;
+    transform: translateY(20px);
   }
 
   &__services-list {
@@ -62,11 +73,13 @@
   &__services-item {
     font-size: 23px;
     font-weight: 400;
+    opacity: 0;
+    transform: translateY(20px);
   }
 }
 
 .projet-navigation {
-  margin-bottom: -3em;
+  margin-bottom: -5em;
   &__container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -101,6 +114,8 @@
   }
   &__prev,
   &__next {
+    opacity: 0;
+    transform: translateY(20px);
     position: relative;
     overflow: hidden;
     &:hover {
@@ -111,7 +126,7 @@
   }
   &__prev {
     .projet-navigation__link {
-      padding-left: $large-desktop-padding;
+      padding-left: $desktop-padding;
       justify-content: flex-start;
     }
     .projet-navigation__link-container {
@@ -140,7 +155,7 @@
   }
   &__next {
     .projet-navigation__link {
-      padding-right: $large-desktop-padding;
+      padding-right: $desktop-padding;
       justify-content: flex-end;
     }
     .projet-navigation__link-container {
@@ -188,9 +203,6 @@
     font-size: 24px;
     font-weight: 400;
     color: $white;
-    span {
-      margin-bottom: -8px;
-    }
   }
   &__link-name {
     font-size: 64px;
@@ -206,6 +218,25 @@
   }
   &__item {
     position: absolute;
+  }
+  &__image {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+@include large-desktop-only {
+  .projet-navigation {
+    &__next {
+      .projet-navigation__link {
+        padding-right: $large-desktop-padding;
+      }
+    }
+    &__prev {
+      .projet-navigation__link {
+        padding-left: $large-desktop-padding;
+      }
+    }
   }
 }
 

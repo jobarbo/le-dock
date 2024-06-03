@@ -26,7 +26,7 @@ class TalentSlider {
       pagination: false,
       type: "loop",
       gap: "4rem",
-      perPage: 2,
+      perPage: 1,
       focus: "center",
       trimSpace: false,
       autoWidth: true,
@@ -45,7 +45,7 @@ class TalentSlider {
       },
     });
 
-    this.splide.mount({});
+    this.splide.mount({ AutoScroll });
   }
 }
 

@@ -1,6 +1,9 @@
 .contact {
   background-color: $blue;
   position: relative;
+  transform: translateY(100px);
+  opacity: 0;
+  z-index: 2;
 
   &__container {
     @include container;
@@ -38,9 +41,18 @@
   }
   &__title {
     color: $white;
+    opacity: 0;
+    transform: translateY(50px);
   }
   &__text {
     color: $white;
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  &__form {
+    opacity: 0;
+    transform: translateY(50px);
   }
 }
 

@@ -8,9 +8,9 @@ get_header(); ?>
 
 
 <?php $hero = get_field('hero'); ?>
-<section class="projet-hero">
+<section data-single-hero class="projet-hero">
     <div class="projet-hero__container">
-        <div class="projet-hero__image-container">
+        <div data-single-hero-media class="projet-hero__image-container">
             <img src="<?= $hero['image']['url'] ?>" alt="Image">
         </div>
     </div>
@@ -42,19 +42,19 @@ get_header(); ?>
 
 
 <?php $info =  get_field('content') ?>
-<section class="projet-info">
+<section data-single-info class="projet-info">
     <div class="projet-info__container">
         <div class="projet-info__content">
-            <h2 class="projet-info__title"><?= $info['title'] ?></h2>
-            <p class="projet-info__text"><?= $info['text'] ?></p>
+            <h2 data-single-info-title class="projet-info__title"><?= $info['title'] ?></h2>
+            <p data-single-info-text class="projet-info__text"><?= $info['text'] ?></p>
         </div>
         <div class="projet-info__services">
-            <h5 class="projet-info__services-title"><?= $info['list_title'] ?></h5>
+            <h5 data-single-list-title class="projet-info__services-title"><?= $info['list_title'] ?></h5>
             <ul class="projet-info__services-list">
                 <?php
                 $categories = get_the_category();
                 foreach ($categories as $category) : ?>
-                    <li class="projet-info__services-item"><?= $category->name ?></li>
+                    <li data-single-list-item class="projet-info__services-item"><?= $category->name ?></li>
                 <?php endforeach; ?>
             </ul>
         </div>
@@ -64,13 +64,12 @@ get_header(); ?>
 </section>
 
 <?php $gallery = get_field('gallery') ?>
-<section class="projet-gallery">
+<section data-single-gallery class="projet-gallery">
     <div class="projet-gallery__container">
-
         <div data-masonry class="projet-gallery__list">
             <?php foreach ($gallery['list'] as $image) : ?>
                 <div data-masonry-item class="projet-gallery__item">
-                    <img src="<?= $image['image']['url'] ?>" alt="Image">
+                    <img data-single-gallery-img class="projet-gallery__image" src="<?= $image['image']['url'] ?>" alt="Image">
                 </div>
             <?php endforeach; ?>
         </div>
@@ -114,10 +113,10 @@ if (!$next_post) {
 $prev_post_acf = get_field('hero', $prev_post->ID);
 $next_post_acf = get_field('hero', $next_post->ID);
 ?>
-<section class="projet-navigation">
+<section data-single-navigation class="projet-navigation">
     <div class="projet-navigation__container">
-        <div class="projet-navigation__prev">
-            <div class="projet-navigation__image projet-navigation__image--prev">
+        <div data-single-navigation-item class="projet-navigation__prev">
+            <div data-single-navigation-img class="projet-navigation__image projet-navigation__image--prev">
                 <img src="<?= $prev_post_acf['image']['url'] ?>" alt="Image">
             </div>
             <div class="projet-navigation__overlay projet-navigation__overlay--prev">
@@ -132,8 +131,8 @@ $next_post_acf = get_field('hero', $next_post->ID);
                 </a>
             <?php endif; ?>
         </div>
-        <div class="projet-navigation__next">
-            <div class="projet-navigation__image projet-navigation__image--next">
+        <div data-single-navigation-item class="projet-navigation__next">
+            <div data-single-navigation-img class="projet-navigation__image projet-navigation__image--next">
                 <img src="<?= $next_post_acf['image']['url'] ?>" alt="Image">
             </div>
             <div class="projet-navigation__overlay projet-navigation__overlay--next">

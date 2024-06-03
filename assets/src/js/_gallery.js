@@ -15,6 +15,7 @@ class Gallery {
           baseWidth: this.galleryWidth / 3,
           minify: true,
           wedge: false,
+          surroundingGutter: false,
         });
       } else {
         this.masonry = new MiniMasonry({
@@ -24,6 +25,7 @@ class Gallery {
           baseWidth: 300,
           minify: true,
           wedge: false,
+          surroundingGutter: false,
         });
       }
     }

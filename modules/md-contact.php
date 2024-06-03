@@ -1,7 +1,7 @@
 <?php $contact = get_field('contact', 'options'); ?>
 
-<section class="contact" id="contact">
-    <div class="contact__wave-container">
+<section data-contact class="contact" id="contact">
+    <div data-contact-container class="contact__wave-container">
         <svg class="contact__wave-svg" id="contact__wave-svg-1" data-name="contact__wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2761 307.79">
             <defs>
                 <style>
@@ -26,12 +26,12 @@
         </svg>
     </div>
 
-    <div class="contact__container">
+    <div data-contact-container class="contact__container">
         <div class="contact__content">
-            <h2 class="contact__title"><?= $contact['title'] ?></h2>
-            <p class="contact__text"><?= $contact['text'] ?></p>
+            <h2 data-contact-title class="contact__title"><?= $contact['title'] ?></h2>
+            <p data-contact-text class="contact__text"><?= $contact['text'] ?></p>
         </div>
-        <div class="contact__form">
+        <div data-contact-form class="contact__form">
             <?= do_shortcode('[gravityform id="2" title="false" description="false" ajax="true"]') ?>
         </div>
     </div>

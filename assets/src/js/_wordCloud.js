@@ -176,6 +176,7 @@ class WordCloud {
     // Add text to the nodes
     this.node
       .append("p")
+      .classed("services__word-text", true)
       .text(function (d) {
         return d.name;
       })

@@ -18,10 +18,14 @@
   }
   &__title {
     margin-bottom: 0.25em;
+    transform: translateY(-50px);
+    opacity: 0;
   }
   &__text {
     font-size: rem(24);
     max-width: 650px;
+    transform: translateY(-50px);
+    opacity: 0;
   }
   &__image {
     display: flex;
@@ -30,11 +34,17 @@
     height: fit-content;
     pointer-events: none;
 
-    img {
+    svg {
       height: 70%;
       object-fit: contain;
       max-height: 450px;
+      max-width: 100%;
     }
+  }
+
+  &__image-path {
+    opacity: 0;
+    transform: scale(0.8) translateX(-100px) translateY(425px);
   }
 }
 
@@ -51,7 +61,7 @@
       z-index: 3;
       pointer-events: none;
       background: linear-gradient(
-        94deg,
+        90deg,
         rgba(240, 242, 240, 1) 0%,
         rgba(240, 242, 240, 0) 10%,
         rgba(240, 242, 240, 0) 90%,
@@ -131,6 +141,8 @@
   }
   &__title {
     margin-bottom: 0.5em;
+    opacity: 0;
+    transform: translateY(-50px);
   }
   &__name {
     font-size: rem(40);
@@ -151,6 +163,8 @@
     cursor: grab;
     background-color: $main-blue;
     margin: 5em 0;
+    transform-origin: left;
+    transform: translateX(-100%);
   }
 
   &__logo-item {
@@ -158,6 +172,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 0;
   }
 
   &__logo-item-container {
@@ -166,6 +181,10 @@
       height: 100%;
       object-fit: contain;
     }
+  }
+  &__slider {
+    opacity: 0;
+    transform: translateY(50px);
   }
 }
 
@@ -227,6 +246,10 @@
 .talents {
   &__wrapper {
     position: relative;
+  }
+  &__container {
+    @include container;
+    padding-bottom: 70px !important;
     &::before {
       content: "";
       position: absolute;
@@ -237,17 +260,13 @@
       z-index: 3;
       pointer-events: none;
       background: linear-gradient(
-        94deg,
+        90deg,
         rgb(240, 242, 240) 0%,
         rgba(240, 242, 240, 0) 10%,
         rgba(240, 242, 240, 0) 90%,
         rgb(240, 242, 240) 100%
       );
     }
-  }
-  &__container {
-    @include container;
-    padding-bottom: 70px !important;
   }
 
   &__title {
@@ -293,11 +312,16 @@
     transform-origin: center;
     transform: scale(1.25);
     flex: 1;
+    img {
+      opacity: 0;
+      transform: translateY(50px);
+    }
   }
   &__position {
     font-size: 17.5px;
     font-weight: 500;
     color: $yellow;
+    opacity: 0;
     &--1 {
       transform: translateX(-80px);
     }
@@ -314,6 +338,8 @@
   &__name {
     font-size: 40px;
     margin-bottom: 0.5em;
+    opacity: 0;
+    transform: translateX(-50px);
     &--1 {
       transform: translateX(-70px);
     }
@@ -329,6 +355,8 @@
   }
   &__text {
     font-size: 20px;
+    opacity: 0;
+    transform: translateX(-50px);
     &--1 {
       transform: translateX(-50px);
     }
@@ -351,6 +379,8 @@
     width: fit-content;
     margin-bottom: 0;
     justify-self: flex-end;
+    opacity: 0;
+    transform: translateX(-50px);
     &--1 {
       transform: translateX(-50px);
     }
@@ -559,6 +589,7 @@
     &__text {
       padding-right: 0;
       margin-bottom: 0;
+      font-size: 18px;
     }
     &__content {
       margin-bottom: 0;
@@ -590,6 +621,9 @@
   }
 
   .talents {
+    &__wrapper {
+      z-index: 1;
+    }
     &__container {
       padding-bottom: 0 !important;
     }
@@ -677,8 +711,9 @@
     &__wave-container {
       margin-top: -3em;
       margin-bottom: 0em;
-      height: 50px;
+      height: 120px;
       bottom: -1em;
+      z-index: 2;
     }
     &__wave-svg {
       top: 1px;
